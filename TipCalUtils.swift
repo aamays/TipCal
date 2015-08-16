@@ -18,4 +18,12 @@ class TipCalUtils {
     static func getLastBillArchiveFile() -> String {
         return "\(TipCalUtils.getUserDirectory())/\(TipCalConstants.lastBillArchiveFileName)"
     }
+
+    static func getFormattedDate(date: NSDate) -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.LongStyle
+        formatter.timeStyle = .ShortStyle
+        
+        return formatter.stringFromDate(date)
+    }
 }

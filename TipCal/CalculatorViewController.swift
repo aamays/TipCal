@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CalculatorViewController: UIViewController {
 
@@ -55,6 +56,8 @@ class CalculatorViewController: UIViewController {
     }
 
     var updateTipPercentWithDefault: Bool!
+
+    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,6 +153,56 @@ class CalculatorViewController: UIViewController {
 
     }
     
+    @IBAction func totalViewLongPressed(sender: UILongPressGestureRecognizer) {
+
+        if count(billAmountTextField.text) > 0 {
+            presentSaveRecordAlertView()
+        }
+    }
+
+    func presentSaveRecordAlertView() -> Void {
+    
+        //1. Create the alert controller.
+        var alert = UIAlertController(title: "Save Bill Record", message: "Reference (e.g. Restaurant Name)", preferredStyle: .Alert)
+        
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+            textField.text = ""
+        })
+        
+        //3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            let textField = alert.textFields![0] as! UITextField
+            if count(textField.text) > 0 {
+                self.saveBillRecord(textField.text)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
+
+        // 4. Present the alert.
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+
+
+    func saveBillRecord(billReference: String) -> Void {
+
+        let ent = NSEntityDescription.entityForName(TipCalConstants.tipHistoryEntityName, inManagedObjectContext: self.context!)
+        let tipHistoryRecord = TipHistory(entity: ent!, insertIntoManagedObjectContext: self.context)
+        tipHistoryRecord.billAmount = billAmount
+        tipHistoryRecord.tipPercent = tipPercent
+        tipHistoryRecord.tipValue = tipValue
+        tipHistoryRecord.totalAmount = totalBillAmount
+        tipHistoryRecord.dateSaved = NSDate()
+        tipHistoryRecord.shareCount = 1
+        tipHistoryRecord.shareAmount = totalBillAmount
+        tipHistoryRecord.reference = billReference
+
+        // save the object
+        self.context?.save(nil)
+
+    }
+
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let settingsVC = segue.destinationViewController as? SettingsViewController {
             settingsVC.onDefaultTipChanged = {[weak self]() in

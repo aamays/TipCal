@@ -7,17 +7,39 @@
 //
 
 import UIKit
+import CoreData
 
-class TipHistoryTableViewController: UITableViewController {
+class TipHistoryTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
+    // currency formatter
+    var currencyFormatter = NSNumberFormatter()
+
+    let context: NSManagedObjectContext  = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
+
+    var fetchedResultsController: NSFetchedResultsController = NSFetchedResultsController()
+
+    func getTipHistoryFetchedResultsController() -> NSFetchedResultsController {
+        return NSFetchedResultsController(fetchRequest: tipHistoryFetchRequest(), managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+    }
+
+    func tipHistoryFetchRequest() -> NSFetchRequest {
+        let fetchRequest = NSFetchRequest(entityName: TipCalConstants.tipHistoryEntityName)
+        let sortDescriptor = NSSortDescriptor(key: "dateSaved", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        return fetchRequest
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        // set currency formatter
+        currencyFormatter.numberStyle = .CurrencyStyle
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        fetchedResultsController = getTipHistoryFetchedResultsController()
+        fetchedResultsController.delegate = self
+        fetchedResultsController.performFetch(nil)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,29 +47,39 @@ class TipHistoryTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        tableView.reloadData()
+    }
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        let numberOfSections = fetchedResultsController.sections?.count
+        return numberOfSections!
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        let numberOfRowsInSection = fetchedResultsController.sections?[section].numberOfObjects
+        return numberOfRowsInSection!
     }
 
-    /*
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("tipRecordCell", forIndexPath: indexPath) as! UITableViewCell
+
+        let tipHistory = fetchedResultsController.objectAtIndexPath(indexPath) as! TipHistory
 
         // Configure the cell...
+        cell.textLabel?.text = tipHistory.reference
+        cell.detailTextLabel?.text = currencyFormatter.stringFromNumber(tipHistory.totalAmount)
 
+        
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -57,17 +89,15 @@ class TipHistoryTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+
+        let managedObject: NSManagedObject = fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
+        context.deleteObject(managedObject)
+        context.save(nil)
     }
-    */
+
 
     /*
     // Override to support rearranging the table view.
@@ -84,14 +114,19 @@ class TipHistoryTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        if let tipDetailVC = segue.destinationViewController as? TipDetailsViewController {
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPathForCell(cell)
+            tipDetailVC.tipHistoryRecord = fetchedResultsController.objectAtIndexPath(indexPath!) as? TipHistory
+        }
     }
-    */
+
 
 }

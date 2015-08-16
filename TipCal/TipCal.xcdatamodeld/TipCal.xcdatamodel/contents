@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="TipHistory" representedClassName="PRODUCT_MODULE_NAME.TipHistory" syncable="YES">
+    <entity name="TipHistory" representedClassName="TipHistory" syncable="YES">
         <attribute name="billAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="dateSaved" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="reference" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="shareAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="shareCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="tipPercent" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -10,6 +11,6 @@
         <attribute name="totalAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TipHistory" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="TipHistory" positionX="-63" positionY="-18" width="128" height="165"/>
     </elements>
 </model>
