@@ -11,12 +11,16 @@ import CoreData
 
 class CalculatorViewController: UIViewController {
 
+    // MARK: - Outlets
     // outlets
     @IBOutlet weak var billAmountTextField: UITextField!
     @IBOutlet weak var tipValueLabel: UILabel!
     @IBOutlet weak var tipPercentLabel: UILabel!
     @IBOutlet weak var totalValueLabel: UILabel!
+    @IBOutlet weak var tipDetailsView: UIView!
+    @IBOutlet weak var totalDetailsView: UIView!
 
+    // MARK: - Class Variables
     // currency formatter
     var currencyFormatter = NSNumberFormatter()
 
@@ -56,9 +60,11 @@ class CalculatorViewController: UIViewController {
     }
 
     var updateTipPercentWithDefault: Bool!
+    var animateLabelTransitionOnLoad = true
 
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
+    // MARK: - Overriden View Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -68,25 +74,81 @@ class CalculatorViewController: UIViewController {
         if !checkAndLoadLastSavedBillFromArchive() {
             updateTipPercentWithDefault = true
         }
+
+        self.tipDetailsView.alpha = 0
+        self.totalDetailsView.alpha = 0
+
     }
 
     override func viewWillAppear(animated: Bool) {
         billAmountTextField.becomeFirstResponder()
-        println(updateTipPercentWithDefault)
         if updateTipPercentWithDefault ?? false {
             setTipPercentToDefault()
         }
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if  animateLabelTransitionOnLoad {
+            beginLabelViewAnnimation()
+        }
+
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - Actions
     @IBAction func billAmountUpdated(sender: UITextField) {
         updateTipAndTotal()
     }
 
+    @IBAction func screenTapped(sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    @IBAction func tipViewSwipped(swipeGesture: UISwipeGestureRecognizer) {
+        
+        switch swipeGesture.direction {
+        case UISwipeGestureRecognizerDirection.Right:
+            tipPercent += (tipPercent < 100.0) ? 1 : 0
+        case UISwipeGestureRecognizerDirection.Left:
+            tipPercent -= (tipPercent > 0.0) ? 1 : 0
+        default:
+            break
+        }
+        
+    }
+    
+    @IBAction func totalViewLongPressed(sender: UILongPressGestureRecognizer) {
+        
+        if count(billAmountTextField.text) > 0 {
+            presentSaveRecordAlertView()
+        } else {
+            shakeTotalDetailsView()
+        }
+    }
+
+    // MARK: - Internal Helper Functions
+    func beginLabelViewAnnimation() {
+        self.tipDetailsView.center.y += 500
+        self.totalDetailsView.center.y += 500
+        self.tipDetailsView.alpha = 1
+        self.totalDetailsView.alpha = 1
+        
+        // UIView.animateWithDuration(1.0, animations: )
+        UIView.animateWithDuration(2.0, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 8, options: nil, animations: ({
+                    self.tipDetailsView.center.y -= 500
+                }), completion: nil)
+        // UIView.animateWithDuration(1.0, animations: )
+        UIView.animateWithDuration(2.0, delay: 0.5, usingSpringWithDamping: 1.0, initialSpringVelocity: 8, options: nil, animations: ({
+            self.totalDetailsView.center.y -= 500
+        }), completion: nil)
+        animateLabelTransitionOnLoad = false
+    }
+    
     func setTipPercentToDefault() {
         tipPercent = NSUserDefaults.standardUserDefaults().doubleForKey(TipCalConstants.defaultTipPercentKey)
     }
@@ -108,20 +170,6 @@ class CalculatorViewController: UIViewController {
         label.textColor = TipCalConstants.placeHolderTextColor
     }
 
-    func archiveLastBillAmount() -> Void {
-        let lastBillAmount = LastBillAmount()
-        lastBillAmount.billAmount = billAmount
-        lastBillAmount.tipPercent = tipPercent
-        lastBillAmount.dateSaved = NSDate()
-        lastBillAmount.shareCount = 1
-
-
-        if !NSKeyedArchiver.archiveRootObject(lastBillAmount, toFile: TipCalUtils.getLastBillArchiveFile()) {
-            NSLog("Could not archive last bill amount")
-        }
-
-    }
-
     func checkAndLoadLastSavedBillFromArchive() -> Bool {
         var billLoadedFromArchive = false
         if let lastBillAmount = NSKeyedUnarchiver.unarchiveObjectWithFile(TipCalUtils.getLastBillArchiveFile()) as? LastBillAmount {
@@ -135,33 +183,9 @@ class CalculatorViewController: UIViewController {
         }
         return billLoadedFromArchive
     }
-
-    @IBAction func screenTapped(sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
     
-    @IBAction func tipViewSwipped(swipeGesture: UISwipeGestureRecognizer) {
-       
-        switch swipeGesture.direction {
-        case UISwipeGestureRecognizerDirection.Right:
-            tipPercent += (tipPercent < 100.0) ? 1 : 0
-        case UISwipeGestureRecognizerDirection.Left:
-            tipPercent -= (tipPercent > 0.0) ? 1 : 0
-        default:
-            break
-        }
-
-    }
-    
-    @IBAction func totalViewLongPressed(sender: UILongPressGestureRecognizer) {
-
-        if count(billAmountTextField.text) > 0 {
-            presentSaveRecordAlertView()
-        }
-    }
-
     func presentSaveRecordAlertView() -> Void {
-    
+        
         //1. Create the alert controller.
         var alert = UIAlertController(title: "Save Bill Record", message: "Reference (e.g. Restaurant Name)", preferredStyle: .Alert)
         
@@ -178,11 +202,35 @@ class CalculatorViewController: UIViewController {
             }
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
-
+        
         // 4. Present the alert.
         self.presentViewController(alert, animated: true, completion: nil)
     }
 
+    func shakeTotalDetailsView() {
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.07
+        animation.repeatCount = 1
+        animation.autoreverses = true
+        animation.fromValue = NSValue(CGPoint: CGPointMake(totalDetailsView.center.x - 10, totalDetailsView.center.y))
+        animation.toValue = NSValue(CGPoint: CGPointMake(totalDetailsView.center.x + 10, totalDetailsView.center.y))
+        totalDetailsView.layer.addAnimation(animation, forKey: "position")
+    }
+
+    // MARK: - Persistence
+    func archiveLastBillAmount() -> Void {
+        let lastBillAmount = LastBillAmount()
+        lastBillAmount.billAmount = billAmount
+        lastBillAmount.tipPercent = tipPercent
+        lastBillAmount.dateSaved = NSDate()
+        lastBillAmount.shareCount = 1
+        
+        
+        if !NSKeyedArchiver.archiveRootObject(lastBillAmount, toFile: TipCalUtils.getLastBillArchiveFile()) {
+            NSLog("Could not archive last bill amount")
+        }
+        
+    }
 
     func saveBillRecord(billReference: String) -> Void {
 
@@ -202,6 +250,7 @@ class CalculatorViewController: UIViewController {
 
     }
 
+    // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let settingsVC = segue.destinationViewController as? SettingsViewController {

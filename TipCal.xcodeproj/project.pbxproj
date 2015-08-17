@@ -30,6 +30,7 @@
 		AC9AF0381B80B2ED002B14E2 /* single-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9AF0371B80B2ED002B14E2 /* single-100.png */; };
 		AC9AF03E1B80DBB1002B14E2 /* TipHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AF03D1B80DBB1002B14E2 /* TipHistory.swift */; };
 		AC9AF0401B80DF80002B14E2 /* TipDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AF03F1B80DF80002B14E2 /* TipDetailsViewController.swift */; };
+		AC9AF04A1B819275002B14E2 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9AF0491B819275002B14E2 /* Loading.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		AC9AF0371B80B2ED002B14E2 /* single-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single-100.png"; sourceTree = "<group>"; };
 		AC9AF03D1B80DBB1002B14E2 /* TipHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipHistory.swift; sourceTree = "<group>"; };
 		AC9AF03F1B80DF80002B14E2 /* TipDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipDetailsViewController.swift; path = ../TipDetailsViewController.swift; sourceTree = "<group>"; };
+		AC9AF0491B819275002B14E2 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 		AC9AEFE01B80259B002B14E2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AC9AF0491B819275002B14E2 /* Loading.png */,
 				AC9AF0371B80B2ED002B14E2 /* single-100.png */,
 				AC9AF0351B80B053002B14E2 /* User Groups-64.png */,
 				AC9AF0331B80AFBC002B14E2 /* Share-64.png */,
@@ -251,6 +254,7 @@
 				AC9AF0221B80333A002B14E2 /* TipCal.plist in Resources */,
 				AC9AEFEB1B80259B002B14E2 /* Main.storyboard in Resources */,
 				AC9AEFF01B80259B002B14E2 /* LaunchScreen.xib in Resources */,
+				AC9AF04A1B819275002B14E2 /* Loading.png in Resources */,
 				AC9AF0361B80B053002B14E2 /* User Groups-64.png in Resources */,
 				AC9AEFED1B80259B002B14E2 /* Images.xcassets in Resources */,
 				AC9AF0381B80B2ED002B14E2 /* single-100.png in Resources */,

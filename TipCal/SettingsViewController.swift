@@ -10,9 +10,11 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    // MARK: - Outlets
     @IBOutlet weak var defaultTipPrecentLabel: UILabel!
     @IBOutlet weak var defaultTipSlider: UISlider!
 
+    // MARK: - Variables
     var onDefaultTipChanged : (() -> ())?
 
     // tip percent values
@@ -24,6 +26,7 @@ class SettingsViewController: UIViewController {
         }
     }
 
+    // MARK: - View Methods (overridden)
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,7 +39,8 @@ class SettingsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    // MARK: - Actions
     @IBAction func defaultTipValueUpdated(sender: UISlider) {
 
         // round the slider value for discrete steps

@@ -19,16 +19,7 @@
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="t7f-AW-3nr">
                                 <rect key="frame" x="289" y="503" width="39" height="37"/>
                             </pageControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Bill Amount" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dya-oY-HzH">
-                                <rect key="frame" x="16" y="87" width="343" height="61"/>
-                                <color key="textColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="30"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                <connections>
-                                    <action selector="billAmountUpdated:" destination="vXZ-lx-hvc" eventType="editingChanged" id="VLX-6J-9nV"/>
-                                </connections>
-                            </textField>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V77-FK-1R5">
+                            <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V77-FK-1R5">
                                 <rect key="frame" x="16" y="156" width="343" height="105"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tip" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfh-6n-OIa">
@@ -52,7 +43,7 @@
                                     <outletCollection property="gestureRecognizers" destination="l1x-qV-gbs" appends="YES" id="wwh-UJ-V3Z"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hyZ-Hr-NnB">
+                            <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hyZ-Hr-NnB">
                                 <rect key="frame" x="16" y="269" width="343" height="116"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="User Groups-64.png" translatesAutoresizingMaskIntoConstraints="NO" id="yHB-ce-J53">
@@ -80,6 +71,15 @@
                                     <outletCollection property="gestureRecognizers" destination="l1x-qV-gbs" appends="YES" id="bLT-4Z-WZR"/>
                                 </connections>
                             </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Bill Amount" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dya-oY-HzH">
+                                <rect key="frame" x="16" y="87" width="343" height="61"/>
+                                <color key="textColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="billAmountUpdated:" destination="vXZ-lx-hvc" eventType="editingChanged" id="VLX-6J-9nV"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -98,8 +98,10 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="billAmountTextField" destination="Dya-oY-HzH" id="Vlk-k7-Sw4"/>
+                        <outlet property="tipDetailsView" destination="V77-FK-1R5" id="9xf-Wc-gws"/>
                         <outlet property="tipPercentLabel" destination="UgR-Ja-p8K" id="wWL-HU-yvc"/>
                         <outlet property="tipValueLabel" destination="Bfh-6n-OIa" id="LQC-v4-6Em"/>
+                        <outlet property="totalDetailsView" destination="hyZ-Hr-NnB" id="HG9-f6-NGh"/>
                         <outlet property="totalValueLabel" destination="hvu-Gf-xDI" id="qhA-1A-CUI"/>
                     </connections>
                 </viewController>
@@ -323,7 +325,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BFA-6P-dIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-898.5" y="4.5"/>
+            <point key="canvasLocation" x="-1470.5" y="4.5"/>
         </scene>
     </scenes>
     <resources>

@@ -39,7 +39,7 @@ class TipHistoryTableViewController: UITableViewController, NSFetchedResultsCont
         fetchedResultsController = getTipHistoryFetchedResultsController()
         fetchedResultsController.delegate = self
         fetchedResultsController.performFetch(nil)
-
+        animateLoadingTable()
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,8 +48,33 @@ class TipHistoryTableViewController: UITableViewController, NSFetchedResultsCont
     }
 
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        tableView.reloadData()
+        animateLoadingTable()
     }
+
+
+    func animateLoadingTable() {
+        // Method to animate table loading
+        tableView.reloadData()
+
+        let visibleCells = tableView.visibleCells()
+        let tableHeight: CGFloat = tableView.bounds.size.height
+
+        for tableCell in visibleCells {
+            let cell: UITableViewCell = tableCell as! UITableViewCell
+            cell.transform = CGAffineTransformMakeTranslation(0, tableHeight)
+        }
+
+        var index = 0
+
+        for tableCell in visibleCells {
+            let cell: UITableViewCell = tableCell as! UITableViewCell
+            UIView.animateWithDuration(1.5, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: nil, animations: {
+                cell.transform = CGAffineTransformMakeTranslation(0, 0);
+                }, completion: nil)
+            index += 1
+        }
+    }
+
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

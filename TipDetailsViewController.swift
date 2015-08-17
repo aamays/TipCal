@@ -10,8 +10,7 @@ import UIKit
 
 class TipDetailsViewController: UIViewController {
 
-    var tipHistoryRecord: TipHistory? = nil
-
+    // MARK: - Outlets
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var referenceLabel: UILabel!
     @IBOutlet weak var billAmountLabel: UILabel!
@@ -19,9 +18,12 @@ class TipDetailsViewController: UIViewController {
     @IBOutlet weak var tipValueLabel: UILabel!
     @IBOutlet weak var totalAmountLabel: UILabel!
 
+    // MARK: Variables
+    var tipHistoryRecord: TipHistory? = nil
 
     var currencyFormatter = NSNumberFormatter()
 
+    // MARK: View Methods (overridden)
     override func viewDidLoad() {
         currencyFormatter.numberStyle = .CurrencyStyle
 
@@ -29,7 +31,13 @@ class TipDetailsViewController: UIViewController {
             updateAllLabels()
         }
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 
+    // MARK: - Internal helper methods
     func updateAllLabels() {
         dateLabel.text = TipCalUtils.getFormattedDate((tipHistoryRecord?.dateSaved)!)
         referenceLabel.text = tipHistoryRecord?.reference
@@ -40,8 +48,4 @@ class TipDetailsViewController: UIViewController {
         tipTextLabel.text = "Tip (\(tipPercent)%)"
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }
