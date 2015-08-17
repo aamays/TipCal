@@ -2,7 +2,7 @@
 //  TipHistory.swift
 //  
 //
-//  Created by Amay Singhal on 8/16/15.
+//  Created by Amay Singhal on 8/17/15.
 //
 //
 
@@ -19,5 +19,6 @@ class TipHistory: NSManagedObject {
     @NSManaged var tipValue: NSNumber
     @NSManaged var totalAmount: NSNumber
     @NSManaged var reference: String
+    @NSManaged var localeIdentifier: String
 
 }

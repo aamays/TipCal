@@ -28,6 +28,7 @@ class TipDetailsViewController: UIViewController {
         currencyFormatter.numberStyle = .CurrencyStyle
 
         if tipHistoryRecord != nil {
+            currencyFormatter.locale = NSLocale(localeIdentifier: tipHistoryRecord?.localeIdentifier ?? "en_US")
             updateAllLabels()
         }
     }

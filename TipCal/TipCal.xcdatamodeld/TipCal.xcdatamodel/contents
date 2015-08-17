@@ -3,6 +3,7 @@
     <entity name="TipHistory" representedClassName="TipHistory" syncable="YES">
         <attribute name="billAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="dateSaved" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="localeIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="reference" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="shareAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="shareCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -11,6 +12,6 @@
         <attribute name="totalAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TipHistory" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="TipHistory" positionX="-63" positionY="-18" width="128" height="180"/>
     </elements>
 </model>

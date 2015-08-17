@@ -99,6 +99,7 @@ class TipHistoryTableViewController: UITableViewController, NSFetchedResultsCont
 
         // Configure the cell...
         cell.textLabel?.text = tipHistory.reference
+        currencyFormatter.locale = NSLocale(localeIdentifier: tipHistory.localeIdentifier)
         cell.detailTextLabel?.text = currencyFormatter.stringFromNumber(tipHistory.totalAmount)
 
         

@@ -77,7 +77,6 @@ class CalculatorViewController: UIViewController {
 
         self.tipDetailsView.alpha = 0
         self.totalDetailsView.alpha = 0
-
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -244,6 +243,7 @@ class CalculatorViewController: UIViewController {
         tipHistoryRecord.shareCount = 1
         tipHistoryRecord.shareAmount = totalBillAmount
         tipHistoryRecord.reference = billReference
+        tipHistoryRecord.localeIdentifier = NSLocale.currentLocale().localeIdentifier
 
         // save the object
         self.context?.save(nil)
