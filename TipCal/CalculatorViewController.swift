@@ -19,6 +19,11 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var totalValueLabel: UILabel!
     @IBOutlet weak var tipDetailsView: UIView!
     @IBOutlet weak var totalDetailsView: UIView!
+    @IBOutlet weak var amtShareDetailsView: UIView!
+    @IBOutlet weak var shareAmountLabel: UILabel!
+    @IBOutlet weak var shareCountLabel: UILabel!
+    @IBOutlet weak var shareCountSlider: UISlider!
+
 
     // MARK: - Class Variables
     // currency formatter
@@ -30,7 +35,7 @@ class CalculatorViewController: UIViewController {
             return round((billAmountTextField.text!.stringByReplacingOccurrencesOfString(currencyFormatter.currencySymbol!, withString: "").stringByReplacingOccurrencesOfString(currencyFormatter.groupingSeparator, withString: "").stringByReplacingOccurrencesOfString(currencyFormatter.decimalSeparator!, withString: ".") as NSString).doubleValue * 100)/100
         }
         set(newValue) {
-            billAmountTextField.text = "\(newValue)"
+            billAmountTextField.text = currencyFormatter.stringFromNumber(newValue)
         }
     
     }
@@ -59,8 +64,32 @@ class CalculatorViewController: UIViewController {
         }
     }
 
+    // variable for split count
+    var splitCount = 1 {
+        didSet(oldValue) {
+            shareCountLabel.text = "\(splitCount) share(s)"
+            shareCountLabel.textColor = UIColor.darkGrayColor()
+
+            if splitCount >= Int(shareCountSlider.minimumValue) && splitCount <= Int(shareCountSlider.maximumValue) {
+                shareCountSlider.value = Float(splitCount)
+            } else {
+                shareCountSlider.value = 25.0
+            }
+        }
+    }
+
+    // variable for share amount per person
+    var splitAmount = 0.0 {
+        didSet(oldValue) {
+            shareAmountLabel.text = currencyFormatter.stringFromNumber(splitAmount)
+            shareAmountLabel.textColor = TipCalConstants.numTextUIColor
+        }
+    }
+
     var updateTipPercentWithDefault: Bool!
-    var animateLabelTransitionOnLoad = true
+    var shareCountManuallySet = false
+
+    var avgSharePerPerson = NSUserDefaults.standardUserDefaults().integerForKey(TipCalConstants.avgCostPerPersonKey)
 
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
@@ -75,25 +104,27 @@ class CalculatorViewController: UIViewController {
             updateTipPercentWithDefault = true
         }
 
-        self.tipDetailsView.alpha = 0
-        self.totalDetailsView.alpha = 0
+        beginLabelViewAnnimation()
     }
 
     override func viewWillAppear(animated: Bool) {
         billAmountTextField.becomeFirstResponder()
-        if updateTipPercentWithDefault ?? false {
-            setTipPercentToDefault()
-        }
     }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        if  animateLabelTransitionOnLoad {
-            beginLabelViewAnnimation()
+
+        // Update share
+        avgSharePerPerson = NSUserDefaults.standardUserDefaults().integerForKey(TipCalConstants.avgCostPerPersonKey)
+        updateShareAmount()
+
+        // Update tip
+        if updateTipPercentWithDefault ?? false {
+            setTipPercentToDefault()
         }
 
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -109,11 +140,13 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func tipViewSwipped(swipeGesture: UISwipeGestureRecognizer) {
-        
+
         switch swipeGesture.direction {
         case UISwipeGestureRecognizerDirection.Right:
+            tipPercent == 100 ? shakeUIView(tipDetailsView) : ()
             tipPercent += (tipPercent < 100.0) ? 1 : 0
         case UISwipeGestureRecognizerDirection.Left:
+            tipPercent == 0 ? shakeUIView(tipDetailsView) : ()
             tipPercent -= (tipPercent > 0.0) ? 1 : 0
         default:
             break
@@ -126,26 +159,36 @@ class CalculatorViewController: UIViewController {
         if count(billAmountTextField.text) > 0 {
             presentSaveRecordAlertView()
         } else {
-            shakeTotalDetailsView()
+            shakeUIView(totalDetailsView)
         }
+    }
+
+    @IBAction func shareCountChanged(sender: UISlider) {
+        var sliderValue = sender.value
+        splitCount = Int(round(sliderValue))
+        shareCountManuallySet = true
+        updateShareAmount()
+        archiveLastBillAmount()
     }
 
     // MARK: - Internal Helper Functions
     func beginLabelViewAnnimation() {
-        self.tipDetailsView.center.y += 500
-        self.totalDetailsView.center.y += 500
-        self.tipDetailsView.alpha = 1
-        self.totalDetailsView.alpha = 1
+        tipDetailsView.center.y += 500
+        totalDetailsView.center.y += 500
+        amtShareDetailsView.center.y += 500
         
         // UIView.animateWithDuration(1.0, animations: )
-        UIView.animateWithDuration(2.0, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 8, options: nil, animations: ({
+        UIView.animateWithDuration(2.0, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 7, options: nil, animations: ({
                     self.tipDetailsView.center.y -= 500
                 }), completion: nil)
-        // UIView.animateWithDuration(1.0, animations: )
+
         UIView.animateWithDuration(2.0, delay: 0.5, usingSpringWithDamping: 1.0, initialSpringVelocity: 8, options: nil, animations: ({
             self.totalDetailsView.center.y -= 500
         }), completion: nil)
-        animateLabelTransitionOnLoad = false
+
+        UIView.animateWithDuration(2.0, delay: 1.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 8, options: nil, animations: ({
+            self.amtShareDetailsView.center.y -= 500
+        }), completion: nil)
     }
     
     func setTipPercentToDefault() {
@@ -157,30 +200,32 @@ class CalculatorViewController: UIViewController {
         if count(billAmountTextField.text) > 0 {
             tipValue = billAmount * tipPercent/100
             totalBillAmount = billAmount + tipValue
+            updateShareAmount()
             archiveLastBillAmount()
         } else {
             resetLabel(tipValueLabel, text: "Tip")
             resetLabel(totalValueLabel, text: "Total")
+            resetLabel(shareAmountLabel, text: "Share")
+            shareCountManuallySet = false
         }
     }
-    
+
+
+    func updateShareAmount() -> Void {
+        // Method to update share amount
+        if count(billAmountTextField.text) > 0 {
+            if !shareCountManuallySet {
+                splitCount = Int(totalBillAmount)/avgSharePerPerson
+                splitCount = splitCount != 0 ? splitCount : 1
+            }
+
+            splitAmount = totalBillAmount/Double(splitCount)
+        }
+    }
+
     func resetLabel(label: UILabel, text: String) -> Void {
         label.text = text
         label.textColor = TipCalConstants.placeHolderTextColor
-    }
-
-    func checkAndLoadLastSavedBillFromArchive() -> Bool {
-        var billLoadedFromArchive = false
-        if let lastBillAmount = NSKeyedUnarchiver.unarchiveObjectWithFile(TipCalUtils.getLastBillArchiveFile()) as? LastBillAmount {
-            if Int(NSDate().timeIntervalSinceDate(lastBillAmount.dateSaved)) < TipCalConstants.maxSecondsElapsedToReload {
-                billAmount = lastBillAmount.billAmount
-                tipPercent = lastBillAmount.tipPercent
-                billLoadedFromArchive = true
-            }
-        } else {
-            NSLog("Something went wrong while loading last saved bill!!!")
-        }
-        return billLoadedFromArchive
     }
     
     func presentSaveRecordAlertView() -> Void {
@@ -206,14 +251,14 @@ class CalculatorViewController: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
 
-    func shakeTotalDetailsView() {
+    func shakeUIView(targetView: UIView) {
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.07
         animation.repeatCount = 1
         animation.autoreverses = true
-        animation.fromValue = NSValue(CGPoint: CGPointMake(totalDetailsView.center.x - 10, totalDetailsView.center.y))
-        animation.toValue = NSValue(CGPoint: CGPointMake(totalDetailsView.center.x + 10, totalDetailsView.center.y))
-        totalDetailsView.layer.addAnimation(animation, forKey: "position")
+        animation.fromValue = NSValue(CGPoint: CGPointMake(targetView.center.x - 10, targetView.center.y))
+        animation.toValue = NSValue(CGPoint: CGPointMake(targetView.center.x + 10, targetView.center.y))
+        targetView.layer.addAnimation(animation, forKey: "position")
     }
 
     // MARK: - Persistence
@@ -222,13 +267,29 @@ class CalculatorViewController: UIViewController {
         lastBillAmount.billAmount = billAmount
         lastBillAmount.tipPercent = tipPercent
         lastBillAmount.dateSaved = NSDate()
-        lastBillAmount.shareCount = 1
+        lastBillAmount.shareCount = Int32(splitCount)
         
         
         if !NSKeyedArchiver.archiveRootObject(lastBillAmount, toFile: TipCalUtils.getLastBillArchiveFile()) {
             NSLog("Could not archive last bill amount")
         }
         
+    }
+
+    func checkAndLoadLastSavedBillFromArchive() -> Bool {
+        var billLoadedFromArchive = false
+        if let lastBillAmount = NSKeyedUnarchiver.unarchiveObjectWithFile(TipCalUtils.getLastBillArchiveFile()) as? LastBillAmount {
+            if Int(NSDate().timeIntervalSinceDate(lastBillAmount.dateSaved)) < TipCalConstants.maxSecondsElapsedToReload {
+                billAmount = lastBillAmount.billAmount
+                tipPercent = lastBillAmount.tipPercent
+                splitCount = Int(lastBillAmount.shareCount)
+                shareCountManuallySet = true
+                billLoadedFromArchive = true
+            }
+        } else {
+            NSLog("Something went wrong while loading last saved bill!!!")
+        }
+        return billLoadedFromArchive
     }
 
     func saveBillRecord(billReference: String) -> Void {
@@ -240,8 +301,8 @@ class CalculatorViewController: UIViewController {
         tipHistoryRecord.tipValue = tipValue
         tipHistoryRecord.totalAmount = totalBillAmount
         tipHistoryRecord.dateSaved = NSDate()
-        tipHistoryRecord.shareCount = 1
-        tipHistoryRecord.shareAmount = totalBillAmount
+        tipHistoryRecord.shareCount = splitCount
+        tipHistoryRecord.shareAmount = splitAmount
         tipHistoryRecord.reference = billReference
         tipHistoryRecord.localeIdentifier = NSLocale.currentLocale().localeIdentifier
 

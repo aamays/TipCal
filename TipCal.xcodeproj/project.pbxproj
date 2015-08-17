@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC8CBBBA1B81B02C00C25A4D /* Info-25.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8CBBB91B81B02C00C25A4D /* Info-25.png */; };
+		AC8CBBBE1B81B70500C25A4D /* AcknowledgementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8CBBBD1B81B70500C25A4D /* AcknowledgementViewController.swift */; };
+		AC8CBBC01B81B90300C25A4D /* Banknotes-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8CBBBF1B81B90300C25A4D /* Banknotes-100.png */; };
+		AC8CBBC21B81B95800C25A4D /* Tip-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8CBBC11B81B95800C25A4D /* Tip-100.png */; };
+		AC8CBBC81B81BFF500C25A4D /* tipApp-120.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8CBBC71B81BFF500C25A4D /* tipApp-120.png */; };
+		AC8CBBCA1B81C02900C25A4D /* tipApp-180.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8CBBC91B81C02900C25A4D /* tipApp-180.png */; };
+		AC8CBBCC1B81C11600C25A4D /* group-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8CBBCB1B81C11600C25A4D /* group-100.png */; };
+		AC8CBBCE1B81C53100C25A4D /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8CBBCD1B81C53100C25A4D /* Loading.png */; };
 		AC9AEFE31B80259B002B14E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AEFE21B80259B002B14E2 /* AppDelegate.swift */; };
 		AC9AEFE61B80259B002B14E2 /* TipCal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC9AEFE41B80259B002B14E2 /* TipCal.xcdatamodeld */; };
 		AC9AEFE81B80259B002B14E2 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AEFE71B80259B002B14E2 /* CalculatorViewController.swift */; };
@@ -24,13 +32,8 @@
 		AC9AF0241B803364002B14E2 /* TipCalConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AF0231B803364002B14E2 /* TipCalConstans.swift */; };
 		AC9AF02C1B806E7C002B14E2 /* LastBillAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AF02B1B806E7C002B14E2 /* LastBillAmount.swift */; };
 		AC9AF02E1B807E23002B14E2 /* TipCalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AF02D1B807E23002B14E2 /* TipCalUtils.swift */; };
-		AC9AF0321B80AEE7002B14E2 /* Save-32.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9AF0311B80AEE7002B14E2 /* Save-32.png */; };
-		AC9AF0341B80AFBC002B14E2 /* Share-64.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9AF0331B80AFBC002B14E2 /* Share-64.png */; };
-		AC9AF0361B80B053002B14E2 /* User Groups-64.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9AF0351B80B053002B14E2 /* User Groups-64.png */; };
-		AC9AF0381B80B2ED002B14E2 /* single-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9AF0371B80B2ED002B14E2 /* single-100.png */; };
 		AC9AF03E1B80DBB1002B14E2 /* TipHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AF03D1B80DBB1002B14E2 /* TipHistory.swift */; };
 		AC9AF0401B80DF80002B14E2 /* TipDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AF03F1B80DF80002B14E2 /* TipDetailsViewController.swift */; };
-		AC9AF04A1B819275002B14E2 /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9AF0491B819275002B14E2 /* Loading.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC8CBBB91B81B02C00C25A4D /* Info-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info-25.png"; sourceTree = "<group>"; };
+		AC8CBBBD1B81B70500C25A4D /* AcknowledgementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AcknowledgementViewController.swift; path = ../AcknowledgementViewController.swift; sourceTree = "<group>"; };
+		AC8CBBBF1B81B90300C25A4D /* Banknotes-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Banknotes-100.png"; sourceTree = "<group>"; };
+		AC8CBBC11B81B95800C25A4D /* Tip-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tip-100.png"; sourceTree = "<group>"; };
+		AC8CBBC71B81BFF500C25A4D /* tipApp-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tipApp-120.png"; sourceTree = "<group>"; };
+		AC8CBBC91B81C02900C25A4D /* tipApp-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tipApp-180.png"; sourceTree = "<group>"; };
+		AC8CBBCB1B81C11600C25A4D /* group-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "group-100.png"; sourceTree = "<group>"; };
+		AC8CBBCD1B81C53100C25A4D /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
 		AC9AEFDD1B80259B002B14E2 /* TipCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC9AEFE11B80259B002B14E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC9AEFE21B80259B002B14E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,13 +76,8 @@
 		AC9AF0231B803364002B14E2 /* TipCalConstans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCalConstans.swift; sourceTree = SOURCE_ROOT; };
 		AC9AF02B1B806E7C002B14E2 /* LastBillAmount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastBillAmount.swift; sourceTree = "<group>"; };
 		AC9AF02D1B807E23002B14E2 /* TipCalUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCalUtils.swift; sourceTree = SOURCE_ROOT; };
-		AC9AF0311B80AEE7002B14E2 /* Save-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Save-32.png"; sourceTree = "<group>"; };
-		AC9AF0331B80AFBC002B14E2 /* Share-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Share-64.png"; sourceTree = "<group>"; };
-		AC9AF0351B80B053002B14E2 /* User Groups-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User Groups-64.png"; sourceTree = "<group>"; };
-		AC9AF0371B80B2ED002B14E2 /* single-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single-100.png"; sourceTree = "<group>"; };
 		AC9AF03D1B80DBB1002B14E2 /* TipHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipHistory.swift; sourceTree = "<group>"; };
 		AC9AF03F1B80DF80002B14E2 /* TipDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipDetailsViewController.swift; path = ../TipDetailsViewController.swift; sourceTree = "<group>"; };
-		AC9AF0491B819275002B14E2 /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +124,7 @@
 				AC9AF00D1B802A2D002B14E2 /* TipHistoryTableViewController.swift */,
 				AC9AF03F1B80DF80002B14E2 /* TipDetailsViewController.swift */,
 				AC9AF00F1B802A47002B14E2 /* SettingsViewController.swift */,
+				AC8CBBBD1B81B70500C25A4D /* AcknowledgementViewController.swift */,
 				AC9AEFE91B80259B002B14E2 /* Main.storyboard */,
 				AC9AEFEC1B80259B002B14E2 /* Images.xcassets */,
 				AC9AEFEE1B80259B002B14E2 /* LaunchScreen.xib */,
@@ -134,11 +141,13 @@
 		AC9AEFE01B80259B002B14E2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AC9AF0491B819275002B14E2 /* Loading.png */,
-				AC9AF0371B80B2ED002B14E2 /* single-100.png */,
-				AC9AF0351B80B053002B14E2 /* User Groups-64.png */,
-				AC9AF0331B80AFBC002B14E2 /* Share-64.png */,
-				AC9AF0311B80AEE7002B14E2 /* Save-32.png */,
+				AC8CBBCD1B81C53100C25A4D /* Loading.png */,
+				AC8CBBCB1B81C11600C25A4D /* group-100.png */,
+				AC8CBBC91B81C02900C25A4D /* tipApp-180.png */,
+				AC8CBBC71B81BFF500C25A4D /* tipApp-120.png */,
+				AC8CBBC11B81B95800C25A4D /* Tip-100.png */,
+				AC8CBBBF1B81B90300C25A4D /* Banknotes-100.png */,
+				AC8CBBB91B81B02C00C25A4D /* Info-25.png */,
 				AC9AF01D1B803276002B14E2 /* LessTip-30.png */,
 				AC9AF01E1B803276002B14E2 /* MoreTip-30.png */,
 				AC9AF00B1B802974002B14E2 /* History-24.png */,
@@ -247,19 +256,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC9AF0321B80AEE7002B14E2 /* Save-32.png in Resources */,
 				AC9AF00A1B802905002B14E2 /* Settings-24.png in Resources */,
 				AC9AF0201B803276002B14E2 /* MoreTip-30.png in Resources */,
 				AC9AF00C1B802974002B14E2 /* History-24.png in Resources */,
 				AC9AF0221B80333A002B14E2 /* TipCal.plist in Resources */,
 				AC9AEFEB1B80259B002B14E2 /* Main.storyboard in Resources */,
+				AC8CBBCE1B81C53100C25A4D /* Loading.png in Resources */,
+				AC8CBBBA1B81B02C00C25A4D /* Info-25.png in Resources */,
+				AC8CBBC01B81B90300C25A4D /* Banknotes-100.png in Resources */,
 				AC9AEFF01B80259B002B14E2 /* LaunchScreen.xib in Resources */,
-				AC9AF04A1B819275002B14E2 /* Loading.png in Resources */,
-				AC9AF0361B80B053002B14E2 /* User Groups-64.png in Resources */,
+				AC8CBBC21B81B95800C25A4D /* Tip-100.png in Resources */,
 				AC9AEFED1B80259B002B14E2 /* Images.xcassets in Resources */,
-				AC9AF0381B80B2ED002B14E2 /* single-100.png in Resources */,
+				AC8CBBCC1B81C11600C25A4D /* group-100.png in Resources */,
 				AC9AF01F1B803276002B14E2 /* LessTip-30.png in Resources */,
-				AC9AF0341B80AFBC002B14E2 /* Share-64.png in Resources */,
+				AC8CBBCA1B81C02900C25A4D /* tipApp-180.png in Resources */,
+				AC8CBBC81B81BFF500C25A4D /* tipApp-120.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +298,7 @@
 				AC9AF0101B802A47002B14E2 /* SettingsViewController.swift in Sources */,
 				AC9AEFE31B80259B002B14E2 /* AppDelegate.swift in Sources */,
 				AC9AF0401B80DF80002B14E2 /* TipDetailsViewController.swift in Sources */,
+				AC8CBBBE1B81B70500C25A4D /* AcknowledgementViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

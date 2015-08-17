@@ -13,6 +13,8 @@ class SettingsViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var defaultTipPrecentLabel: UILabel!
     @IBOutlet weak var defaultTipSlider: UISlider!
+    @IBOutlet weak var avgAmountTextLabel: UILabel!
+    @IBOutlet weak var avgAmountValueLabel: UITextField!
 
     // MARK: - Variables
     var onDefaultTipChanged : (() -> ())?
@@ -26,12 +28,19 @@ class SettingsViewController: UIViewController {
         }
     }
 
+    // currency formatter
+    var currencyFormatter = NSNumberFormatter()
+
     // MARK: - View Methods (overridden)
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        currencyFormatter.numberStyle = .CurrencyStyle
+
         tipPercent = NSUserDefaults.standardUserDefaults().floatForKey(TipCalConstants.defaultTipPercentKey)
+        avgAmountValueLabel.text = "\(NSUserDefaults.standardUserDefaults().integerForKey(TipCalConstants.avgCostPerPersonKey))"
+        avgAmountTextLabel.text = "Avg. \(currencyFormatter.currencySymbol!)/person"
     }
 
 
@@ -47,15 +56,21 @@ class SettingsViewController: UIViewController {
         tipPercent = round(sender.value)
 
         // save default tip to user application default
-        saveDefaultTipValue(tipPercent)
-    }
-
-    func saveDefaultTipValue(tipValue: Float) -> Void {
-        // Method to save default tip percent to user setings        
-        NSUserDefaults.standardUserDefaults().setFloat(tipValue, forKey: TipCalConstants.defaultTipPercentKey)
+        NSUserDefaults.standardUserDefaults().setFloat(tipPercent, forKey: TipCalConstants.defaultTipPercentKey)
         onDefaultTipChanged!()
     }
-      
+
+    @IBAction func screenTapped(sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+
+    @IBAction func avgAmountValueUpdated(sender: UITextField) {
+
+        // save default tip to user application default
+        if let newAvgCost = sender.text.toInt() {
+            NSUserDefaults.standardUserDefaults().setInteger(newAvgCost, forKey: TipCalConstants.avgCostPerPersonKey)
+        }
+    }
 
     /*
     // MARK: - Navigation

@@ -4,8 +4,10 @@
 <dict>
 	<key>defaults</key>
 	<dict>
+		<key>avgCostPerPerson</key>
+		<integer>13</integer>
 		<key>defaultTipPercent</key>
-		<real>15</real>
+		<integer>15</integer>
 	</dict>
 </dict>
 </plist>
