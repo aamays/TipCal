@@ -10,7 +10,7 @@ Time spent: 15 hours
 #### Completed:
 
 * [x] Required: User can enter a bill amount, choose a tip percentage, and see the tip and total values.
- * Use swipe gestures to adjust the tip % (left swipe to decrese % and right swipe to increase %)
+ * Use swipe gestures to adjust the tip % (left swipe to decrease % and right swipe to increase %)
 * [x] Required: Settings page to change the default tip percentage.
 * [x] Optional: UI animations
 * [x] Optional: Remembering the bill amount across app restarts (if <10mins)
@@ -45,9 +45,9 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 * Devices
  * iPhone 6 Simulator
 
-#### Limiations
+#### Limitations
 
-* The app currently works only in iPhone 6 - Potrait Mode
+* The app currently works only in iPhone 6 - Portrait Mode
 
 #### Further improvements to do:
 
