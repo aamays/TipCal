@@ -2,7 +2,10 @@
 
 A Tip Calculator application for iOS (in Swift) submitted as the [pre-work](http://bit.ly/iOS_prework) requirement for Codepath iOS bootcamp (September '15).
 
-Time spent: 15 hours (Functionality: ~8 hours; UI/UX: ~3 hours; Testing/Bug Fixes: ~4 hours)
+Time spent: 15 hours
+ * Functionality: ~8 hours
+ * UI/UX: ~3 hours
+ * Testing/Bug Fixes: ~4 hours
 
 #### Completed:
 
@@ -30,7 +33,7 @@ Time spent: 15 hours (Functionality: ~8 hours; UI/UX: ~3 hours; Testing/Bug Fixe
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
-#### Full Demo:
+#### Demo:
 
 ![Demo](https://www.youtube.com/watch?v=jn_i-FuJoQQ)
 
