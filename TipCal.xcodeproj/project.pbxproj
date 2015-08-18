@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC4C07F71B83096700C16F75 /* Group-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AC4C07F51B83096700C16F75 /* Group-100.png */; };
+		AC4C07F81B83096700C16F75 /* User-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AC4C07F61B83096700C16F75 /* User-100.png */; };
+		AC4C07FA1B830A2A00C16F75 /* Right Filled-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AC4C07F91B830A2A00C16F75 /* Right Filled-100.png */; };
 		AC8CBBBA1B81B02C00C25A4D /* Info-25.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8CBBB91B81B02C00C25A4D /* Info-25.png */; };
 		AC8CBBBE1B81B70500C25A4D /* AcknowledgementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8CBBBD1B81B70500C25A4D /* AcknowledgementViewController.swift */; };
 		AC8CBBC01B81B90300C25A4D /* Banknotes-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8CBBBF1B81B90300C25A4D /* Banknotes-100.png */; };
 		AC8CBBC21B81B95800C25A4D /* Tip-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8CBBC11B81B95800C25A4D /* Tip-100.png */; };
 		AC8CBBC81B81BFF500C25A4D /* tipApp-120.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8CBBC71B81BFF500C25A4D /* tipApp-120.png */; };
 		AC8CBBCA1B81C02900C25A4D /* tipApp-180.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8CBBC91B81C02900C25A4D /* tipApp-180.png */; };
-		AC8CBBCC1B81C11600C25A4D /* group-100.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8CBBCB1B81C11600C25A4D /* group-100.png */; };
 		AC8CBBCE1B81C53100C25A4D /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8CBBCD1B81C53100C25A4D /* Loading.png */; };
 		AC9AEFE31B80259B002B14E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AEFE21B80259B002B14E2 /* AppDelegate.swift */; };
 		AC9AEFE61B80259B002B14E2 /* TipCal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC9AEFE41B80259B002B14E2 /* TipCal.xcdatamodeld */; };
@@ -48,13 +50,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC4C07F51B83096700C16F75 /* Group-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group-100.png"; sourceTree = "<group>"; };
+		AC4C07F61B83096700C16F75 /* User-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User-100.png"; sourceTree = "<group>"; };
+		AC4C07F91B830A2A00C16F75 /* Right Filled-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Right Filled-100.png"; sourceTree = "<group>"; };
 		AC8CBBB91B81B02C00C25A4D /* Info-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info-25.png"; sourceTree = "<group>"; };
 		AC8CBBBD1B81B70500C25A4D /* AcknowledgementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcknowledgementViewController.swift; sourceTree = "<group>"; };
 		AC8CBBBF1B81B90300C25A4D /* Banknotes-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Banknotes-100.png"; sourceTree = "<group>"; };
 		AC8CBBC11B81B95800C25A4D /* Tip-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tip-100.png"; sourceTree = "<group>"; };
 		AC8CBBC71B81BFF500C25A4D /* tipApp-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tipApp-120.png"; sourceTree = "<group>"; };
 		AC8CBBC91B81C02900C25A4D /* tipApp-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tipApp-180.png"; sourceTree = "<group>"; };
-		AC8CBBCB1B81C11600C25A4D /* group-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "group-100.png"; sourceTree = "<group>"; };
 		AC8CBBCD1B81C53100C25A4D /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
 		AC9AEFDD1B80259B002B14E2 /* TipCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC9AEFE11B80259B002B14E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -144,8 +148,10 @@
 		AC9AEFE01B80259B002B14E2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AC4C07F91B830A2A00C16F75 /* Right Filled-100.png */,
+				AC4C07F51B83096700C16F75 /* Group-100.png */,
+				AC4C07F61B83096700C16F75 /* User-100.png */,
 				AC8CBBCD1B81C53100C25A4D /* Loading.png */,
-				AC8CBBCB1B81C11600C25A4D /* group-100.png */,
 				AC8CBBC91B81C02900C25A4D /* tipApp-180.png */,
 				AC8CBBC71B81BFF500C25A4D /* tipApp-120.png */,
 				AC8CBBC11B81B95800C25A4D /* Tip-100.png */,
@@ -263,7 +269,10 @@
 				AC9AF0201B803276002B14E2 /* MoreTip-30.png in Resources */,
 				AC9AF00C1B802974002B14E2 /* History-24.png in Resources */,
 				AC9AF0221B80333A002B14E2 /* TipCal.plist in Resources */,
+				AC4C07F71B83096700C16F75 /* Group-100.png in Resources */,
 				ACF548511B82EE58005D58BE /* TipCalDemo.gif in Resources */,
+				AC4C07F81B83096700C16F75 /* User-100.png in Resources */,
+				AC4C07FA1B830A2A00C16F75 /* Right Filled-100.png in Resources */,
 				AC9AEFEB1B80259B002B14E2 /* Main.storyboard in Resources */,
 				AC8CBBCE1B81C53100C25A4D /* Loading.png in Resources */,
 				AC8CBBBA1B81B02C00C25A4D /* Info-25.png in Resources */,
@@ -271,7 +280,6 @@
 				AC9AEFF01B80259B002B14E2 /* LaunchScreen.xib in Resources */,
 				AC8CBBC21B81B95800C25A4D /* Tip-100.png in Resources */,
 				AC9AEFED1B80259B002B14E2 /* Images.xcassets in Resources */,
-				AC8CBBCC1B81C11600C25A4D /* group-100.png in Resources */,
 				AC9AF01F1B803276002B14E2 /* LessTip-30.png in Resources */,
 				AC8CBBCA1B81C02900C25A4D /* tipApp-180.png in Resources */,
 				AC8CBBC81B81BFF500C25A4D /* tipApp-120.png in Resources */,
