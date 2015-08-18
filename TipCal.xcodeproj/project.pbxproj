@@ -49,7 +49,7 @@
 
 /* Begin PBXFileReference section */
 		AC8CBBB91B81B02C00C25A4D /* Info-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info-25.png"; sourceTree = "<group>"; };
-		AC8CBBBD1B81B70500C25A4D /* AcknowledgementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AcknowledgementViewController.swift; path = ../AcknowledgementViewController.swift; sourceTree = "<group>"; };
+		AC8CBBBD1B81B70500C25A4D /* AcknowledgementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcknowledgementViewController.swift; sourceTree = "<group>"; };
 		AC8CBBBF1B81B90300C25A4D /* Banknotes-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Banknotes-100.png"; sourceTree = "<group>"; };
 		AC8CBBC11B81B95800C25A4D /* Tip-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tip-100.png"; sourceTree = "<group>"; };
 		AC8CBBC71B81BFF500C25A4D /* tipApp-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tipApp-120.png"; sourceTree = "<group>"; };
@@ -74,11 +74,11 @@
 		AC9AF01D1B803276002B14E2 /* LessTip-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LessTip-30.png"; sourceTree = "<group>"; };
 		AC9AF01E1B803276002B14E2 /* MoreTip-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MoreTip-30.png"; sourceTree = "<group>"; };
 		AC9AF0211B80333A002B14E2 /* TipCal.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TipCal.plist; sourceTree = "<group>"; };
-		AC9AF0231B803364002B14E2 /* TipCalConstans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCalConstans.swift; sourceTree = SOURCE_ROOT; };
+		AC9AF0231B803364002B14E2 /* TipCalConstans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipCalConstans.swift; path = TipCal/TipCalConstans.swift; sourceTree = SOURCE_ROOT; };
 		AC9AF02B1B806E7C002B14E2 /* LastBillAmount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastBillAmount.swift; sourceTree = "<group>"; };
-		AC9AF02D1B807E23002B14E2 /* TipCalUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCalUtils.swift; sourceTree = SOURCE_ROOT; };
+		AC9AF02D1B807E23002B14E2 /* TipCalUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipCalUtils.swift; path = TipCal/TipCalUtils.swift; sourceTree = SOURCE_ROOT; };
 		AC9AF03D1B80DBB1002B14E2 /* TipHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipHistory.swift; sourceTree = "<group>"; };
-		AC9AF03F1B80DF80002B14E2 /* TipDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipDetailsViewController.swift; path = ../TipDetailsViewController.swift; sourceTree = "<group>"; };
+		AC9AF03F1B80DF80002B14E2 /* TipDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipDetailsViewController.swift; sourceTree = "<group>"; };
 		ACF548501B82EE58005D58BE /* TipCalDemo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = TipCalDemo.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
