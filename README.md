@@ -53,3 +53,4 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 * Make the app compatible with other devices
 * Support Landscape mode
+* Text localization in the app
