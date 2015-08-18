@@ -43,7 +43,6 @@ class SettingsViewController: UIViewController {
         avgAmountTextLabel.text = "Avg. \(currencyFormatter.currencySymbol!)/person"
     }
 
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -51,7 +50,6 @@ class SettingsViewController: UIViewController {
 
     // MARK: - Actions
     @IBAction func defaultTipValueUpdated(sender: UISlider) {
-
         // round the slider value for discrete steps
         tipPercent = round(sender.value)
 

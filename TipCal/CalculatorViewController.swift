@@ -47,7 +47,7 @@ class CalculatorViewController: UIViewController {
             updateTipAndTotal()
         }
     }
-    
+
     // variable for tip value
     var tipValue = 0.0 {
         willSet(newTipValue) {
@@ -73,7 +73,7 @@ class CalculatorViewController: UIViewController {
             if splitCount >= Int(shareCountSlider.minimumValue) && splitCount <= Int(shareCountSlider.maximumValue) {
                 shareCountSlider.value = Float(splitCount)
             } else {
-                shareCountSlider.value = 25.0
+                shareCountSlider.value = TipCalConstants.defaultShareCountSliderValue
             }
         }
     }
@@ -138,9 +138,8 @@ class CalculatorViewController: UIViewController {
     @IBAction func screenTapped(sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
-    
-    @IBAction func tipViewSwipped(swipeGesture: UISwipeGestureRecognizer) {
 
+    @IBAction func tipViewSwipped(swipeGesture: UISwipeGestureRecognizer) {
         switch swipeGesture.direction {
         case UISwipeGestureRecognizerDirection.Right:
             tipPercent == 100 ? shakeUIView(tipDetailsView) : ()
@@ -151,11 +150,10 @@ class CalculatorViewController: UIViewController {
         default:
             break
         }
-        
+        updateTipPercentWithDefault = false
     }
     
     @IBAction func totalViewLongPressed(sender: UILongPressGestureRecognizer) {
-        
         if count(billAmountTextField.text) > 0 {
             presentSaveRecordAlertView()
         } else {
@@ -176,7 +174,7 @@ class CalculatorViewController: UIViewController {
         tipDetailsView.center.y += 500
         totalDetailsView.center.y += 500
         amtShareDetailsView.center.y += 500
-        
+
         // UIView.animateWithDuration(1.0, animations: )
         UIView.animateWithDuration(2.0, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 7, options: nil, animations: ({
                     self.tipDetailsView.center.y -= 500
@@ -190,7 +188,7 @@ class CalculatorViewController: UIViewController {
             self.amtShareDetailsView.center.y -= 500
         }), completion: nil)
     }
-    
+
     func setTipPercentToDefault() {
         tipPercent = NSUserDefaults.standardUserDefaults().doubleForKey(TipCalConstants.defaultTipPercentKey)
     }
@@ -210,7 +208,6 @@ class CalculatorViewController: UIViewController {
         }
     }
 
-
     func updateShareAmount() -> Void {
         // Method to update share amount
         if count(billAmountTextField.text) > 0 {
@@ -227,7 +224,7 @@ class CalculatorViewController: UIViewController {
         label.text = text
         label.textColor = TipCalConstants.placeHolderTextColor
     }
-    
+
     func presentSaveRecordAlertView() -> Void {
         
         //1. Create the alert controller.
@@ -236,6 +233,7 @@ class CalculatorViewController: UIViewController {
         //2. Add the text field. You can configure it however you need.
         alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
             textField.text = ""
+            textField.autocapitalizationType = UITextAutocapitalizationType.Words
         })
         
         //3. Grab the value from the text field, and print it when the user clicks OK.
@@ -268,12 +266,11 @@ class CalculatorViewController: UIViewController {
         lastBillAmount.tipPercent = tipPercent
         lastBillAmount.dateSaved = NSDate()
         lastBillAmount.shareCount = Int32(splitCount)
-        
-        
+
+
         if !NSKeyedArchiver.archiveRootObject(lastBillAmount, toFile: TipCalUtils.getLastBillArchiveFile()) {
             NSLog("Could not archive last bill amount")
         }
-        
     }
 
     func checkAndLoadLastSavedBillFromArchive() -> Bool {

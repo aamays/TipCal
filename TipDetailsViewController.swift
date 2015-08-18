@@ -32,7 +32,7 @@ class TipDetailsViewController: UIViewController {
             updateAllLabels()
         }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -48,5 +48,4 @@ class TipDetailsViewController: UIViewController {
         let tipPercent = (tipHistoryRecord?.tipPercent)!
         tipTextLabel.text = "Tip (\(tipPercent)%)"
     }
-
 }

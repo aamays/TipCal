@@ -16,7 +16,6 @@ class LastBillAmount: NSObject, NSCoding {
     var dateSaved: NSDate!
     
     // MARK: NSCoding
-    
     required convenience init(coder decoder: NSCoder) {
         self.init()
         self.billAmount = decoder.decodeDoubleForKey("billAmount") as Double

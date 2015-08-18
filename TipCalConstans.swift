@@ -20,6 +20,7 @@ class TipCalConstants {
 
     // MARK: - App logic contatns
     static let maxSecondsElapsedToReload = 600
+    static let defaultShareCountSliderValue:Float = 25.0
 
     // MARK: - UI Contants
     // valid value text color

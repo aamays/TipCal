@@ -18,18 +18,8 @@ class TipHistoryTableViewController: UITableViewController, NSFetchedResultsCont
 
     var fetchedResultsController: NSFetchedResultsController = NSFetchedResultsController()
 
-    func getTipHistoryFetchedResultsController() -> NSFetchedResultsController {
-        return NSFetchedResultsController(fetchRequest: tipHistoryFetchRequest(), managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-    }
 
-    func tipHistoryFetchRequest() -> NSFetchRequest {
-        let fetchRequest = NSFetchRequest(entityName: TipCalConstants.tipHistoryEntityName)
-        let sortDescriptor = NSSortDescriptor(key: "dateSaved", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        return fetchRequest
-
-    }
-    
+    // MARK: - View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,10 +37,21 @@ class TipHistoryTableViewController: UITableViewController, NSFetchedResultsCont
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - Helper functions
+    func getTipHistoryFetchedResultsController() -> NSFetchedResultsController {
+        return NSFetchedResultsController(fetchRequest: tipHistoryFetchRequest(), managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+    }
+
+    func tipHistoryFetchRequest() -> NSFetchRequest {
+        let fetchRequest = NSFetchRequest(entityName: TipCalConstants.tipHistoryEntityName)
+        let sortDescriptor = NSSortDescriptor(key: "dateSaved", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        return fetchRequest
+    }
+
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         animateLoadingTable()
     }
-
 
     func animateLoadingTable() {
         // Method to animate table loading
@@ -102,7 +103,6 @@ class TipHistoryTableViewController: UITableViewController, NSFetchedResultsCont
         currencyFormatter.locale = NSLocale(localeIdentifier: tipHistory.localeIdentifier)
         cell.detailTextLabel?.text = currencyFormatter.stringFromNumber(tipHistory.totalAmount)
 
-        
         return cell
     }
 
@@ -153,6 +153,4 @@ class TipHistoryTableViewController: UITableViewController, NSFetchedResultsCont
             tipDetailVC.tipHistoryRecord = fetchedResultsController.objectAtIndexPath(indexPath!) as? TipHistory
         }
     }
-
-
 }
