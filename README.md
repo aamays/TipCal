@@ -16,11 +16,11 @@ Time spent: 15 hours
 * [x] Optional: Remembering the bill amount across app restarts (if <10mins)
 * [x] Optional: Using locale-specific currency and currency thousands separators.
 * [x] Optional: Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
-* [x] Additional: Ability to save a bill amount so that it can referred later. To save a bill amount
-  (Bills are saved with the locale reference and are displayed in the locale saved they were saved in)
+* [x] Additional: Ability to save a bill amount so that it can be referred later. To save a bill amount
   1. Long press on the the bill total
   2. Enter a reference such as restaurant name
   3. Hit 'Ok'
+(Bills are saved with the locale reference and are displayed in the locale saved they were saved in)
 * [x] Additional: View saved tip details in a table. To view tip details click any table cell.
 * [x] Additional: A user setting for average bill amount per user
    (this is used in pre-calculating # of shares based on total bill amount)
