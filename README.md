@@ -16,7 +16,7 @@ Time spent: 15 hours
 * [x] Optional: Remembering the bill amount across app restarts (if <10mins)
 * [x] Optional: Using locale-specific currency and currency thousands separators.
 * [x] Optional: Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
-* [x] Additional: Ability to save a bill amount so that it can be referred later. To save a bill amount
+* [x] Additional: Ability to save a bill amount (using CoreData API) so that it can be referred later. To save a bill amount
   1. Long press on the the bill total
   2. Enter a reference such as restaurant name
   3. Hit 'Ok'
