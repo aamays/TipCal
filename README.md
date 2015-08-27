@@ -25,7 +25,9 @@ Time spent: 15 hours
 * [x] Additional: A user setting for average bill amount per user
    (this is used in pre-calculating # of shares based on total bill amount)
 * [x] Additional: User can view split amount for the total bill and also adjust # of split counts
-
+* [x] Additional: Use CoreLocation and MapKit APIs for:
+ * Show current city and state to the user in main view (CoreLocation)
+ * In tip history detail view, show restaurant location to user on map (MapKit)
 
 #### Walkthrough:
 
