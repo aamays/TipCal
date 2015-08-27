@@ -21,10 +21,10 @@ Time spent: 15 hours
   2. Enter a reference such as restaurant name
   3. Hit 'Ok'
 (Bills are saved with the locale reference and are displayed in the locale saved they were saved in)
-* [x] Additional: View saved tip details in a table. To view tip details click any table cell.
-* [x] Additional: A user setting for average bill amount per user
-   (this is used in pre-calculating # of shares based on total bill amount)
+* [x] Additional: View saved tip details in a table. To view tip details click any table cell
 * [x] Additional: User can view split amount for the total bill and also adjust # of split counts
+ * A user setting for average bill amount per user
+   (this is used in pre-calculating # of shares based on total bill amount)
 * [x] Additional: Use CoreLocation and MapKit APIs for:
  * Show current city and state to the user in main view (CoreLocation)
  * In tip history detail view, show restaurant location to user on map (MapKit)
