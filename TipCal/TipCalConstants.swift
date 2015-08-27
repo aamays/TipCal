@@ -18,7 +18,10 @@ class TipCalConstants {
     static let lastBillArchiveFileName = "lastbillamount"
     static let tipHistoryEntityName = "TipHistory"
 
-    // MARK: - App logic contatns
+    // MARK: - General Text
+    static let notAvailableText = "N/A";
+
+    // MARK: - App logic contants
     static let maxSecondsElapsedToReload = 600
     static let defaultShareCountSliderValue:Float = 25.0
 

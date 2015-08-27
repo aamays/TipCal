@@ -94,14 +94,15 @@ class TipHistoryTableViewController: UITableViewController, NSFetchedResultsCont
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("tipRecordCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("tipRecordCell", forIndexPath: indexPath) as! TipHistoryTableCell
 
         let tipHistory = fetchedResultsController.objectAtIndexPath(indexPath) as! TipHistory
 
         // Configure the cell...
-        cell.textLabel?.text = tipHistory.reference
+        cell.referenceLabel.text = tipHistory.reference
         currencyFormatter.locale = NSLocale(localeIdentifier: tipHistory.localeIdentifier)
-        cell.detailTextLabel?.text = currencyFormatter.stringFromNumber(tipHistory.totalAmount)
+        cell.totalAmountLabel.text = currencyFormatter.stringFromNumber(tipHistory.totalAmount)
+        cell.dateLabel.text = TipCalUtils.getFormattedDate(tipHistory.dateSaved)
 
         return cell
     }

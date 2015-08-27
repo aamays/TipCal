@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
-class CalculatorViewController: UIViewController {
+class CalculatorViewController: UIViewController, CLLocationManagerDelegate {
 
     // MARK: - Outlets
     // outlets
@@ -23,11 +24,14 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var shareAmountLabel: UILabel!
     @IBOutlet weak var shareCountLabel: UILabel!
     @IBOutlet weak var shareCountSlider: UISlider!
+    @IBOutlet weak var locationDetailsView: UIView!
+    @IBOutlet weak var locationLabel: UILabel!
 
 
     // MARK: - Class Variables
     // currency formatter
     var currencyFormatter = NSNumberFormatter()
+    let locationManager = CLLocationManager()
 
     // varibale for bill amount
     var billAmount: Double {
@@ -44,22 +48,21 @@ class CalculatorViewController: UIViewController {
     var tipPercent = 0.0 {
         didSet(oldTipPercent) {
             tipPercentLabel.text = String(format: "(%.0f%%)", tipPercent)
-            updateTipAndTotal()
         }
     }
 
     // variable for tip value
     var tipValue = 0.0 {
-        willSet(newTipValue) {
-            tipValueLabel.text = currencyFormatter.stringFromNumber(newTipValue)
+        didSet(oldTipValue) {
+            tipValueLabel.text = currencyFormatter.stringFromNumber(tipValue)
             tipValueLabel.textColor = TipCalConstants.numTextUIColor
         }
     }
 
     // varaible for total value
     var totalBillAmount = 0.0 {
-        willSet(newTotal) {
-            totalValueLabel.text = currencyFormatter.stringFromNumber(newTotal)
+        didSet(oldTotal) {
+            totalValueLabel.text = currencyFormatter.stringFromNumber(totalBillAmount)
             totalValueLabel.textColor = TipCalConstants.numTextUIColor
         }
     }
@@ -104,6 +107,12 @@ class CalculatorViewController: UIViewController {
             updateTipPercentWithDefault = true
         }
 
+        // setup location manager
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+
         beginLabelViewAnnimation()
     }
 
@@ -114,7 +123,9 @@ class CalculatorViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
-        // Update share
+        // Update share amount whatever was set in default
+        // this useful particulary when user comes back to main view from Settings view
+        // (and he may have changed avg cost per person)
         avgSharePerPerson = NSUserDefaults.standardUserDefaults().integerForKey(TipCalConstants.avgCostPerPersonKey)
         updateShareAmount()
 
@@ -151,6 +162,7 @@ class CalculatorViewController: UIViewController {
             break
         }
         updateTipPercentWithDefault = false
+        updateTipAndTotal()
     }
     
     @IBAction func totalViewLongPressed(sender: UILongPressGestureRecognizer) {
@@ -167,6 +179,28 @@ class CalculatorViewController: UIViewController {
         shareCountManuallySet = true
         updateShareAmount()
         archiveLastBillAmount()
+    }
+
+    // MARK: - Location delegate methods
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+
+        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error) -> Void in
+            if error != nil {
+                println("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            // update location code
+            if placemarks.count > 0 {
+                let pm = placemarks[0] as! CLPlacemark
+                self.displayLocationInfo(pm)
+            }
+        })
+    }
+
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        println("\(error.localizedDescription)")
     }
 
     // MARK: - Internal Helper Functions
@@ -191,6 +225,7 @@ class CalculatorViewController: UIViewController {
 
     func setTipPercentToDefault() {
         tipPercent = NSUserDefaults.standardUserDefaults().doubleForKey(TipCalConstants.defaultTipPercentKey)
+        updateTipAndTotal()
     }
 
     func updateTipAndTotal() -> Void {
@@ -259,6 +294,13 @@ class CalculatorViewController: UIViewController {
         targetView.layer.addAnimation(animation, forKey: "position")
     }
 
+    
+    func displayLocationInfo(placemark: CLPlacemark) {
+        //locationManager.stopUpdatingLocation()
+        locationDetailsView.alpha = 1
+        locationLabel.text = "\(placemark.locality), \(placemark.administrativeArea)"
+    }
+
     // MARK: - Persistence
     func archiveLastBillAmount() -> Void {
         let lastBillAmount = LastBillAmount()
@@ -277,11 +319,16 @@ class CalculatorViewController: UIViewController {
         var billLoadedFromArchive = false
         if let lastBillAmount = NSKeyedUnarchiver.unarchiveObjectWithFile(TipCalUtils.getLastBillArchiveFile()) as? LastBillAmount {
             if Int(NSDate().timeIntervalSinceDate(lastBillAmount.dateSaved)) < TipCalConstants.maxSecondsElapsedToReload {
-                billAmount = lastBillAmount.billAmount
-                tipPercent = lastBillAmount.tipPercent
-                splitCount = Int(lastBillAmount.shareCount)
                 shareCountManuallySet = true
                 billLoadedFromArchive = true
+
+                // set variables
+                billAmount = lastBillAmount.billAmount
+                splitCount = Int(lastBillAmount.shareCount)
+                tipPercent = lastBillAmount.tipPercent
+
+                // make necessary updates
+                updateTipAndTotal()
             }
         } else {
             NSLog("Something went wrong while loading last saved bill!!!")
@@ -302,6 +349,12 @@ class CalculatorViewController: UIViewController {
         tipHistoryRecord.shareAmount = splitAmount
         tipHistoryRecord.reference = billReference
         tipHistoryRecord.localeIdentifier = NSLocale.currentLocale().localeIdentifier
+
+        // add location details
+        let locValue:CLLocationCoordinate2D = locationManager.location.coordinate
+        tipHistoryRecord.locationLatitude = locValue.latitude
+        tipHistoryRecord.locationLongitude = locValue.longitude
+        tipHistoryRecord.locationText = locationLabel.text ?? TipCalConstants.notAvailableText
 
         // save the object
         self.context?.save(nil)
