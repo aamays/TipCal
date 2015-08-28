@@ -14,14 +14,20 @@ class LastBillAmount: NSObject, NSCoding {
     var tipPercent: Double!
     var shareCount: Int32!
     var dateSaved: NSDate!
-    
+
+    init(subTotal: Double, andTipPercent tipP: Double, forSplit split: Int32, onDate date: NSDate) {
+        billAmount = subTotal
+        tipPercent = tipP
+        shareCount = split
+        dateSaved = date
+    }
+
     // MARK: NSCoding
     required convenience init(coder decoder: NSCoder) {
-        self.init()
-        self.billAmount = decoder.decodeDoubleForKey("billAmount") as Double
-        self.tipPercent = decoder.decodeDoubleForKey("tipPercent") as Double
-        self.shareCount = decoder.decodeInt32ForKey("shareCount") as Int32
-        self.dateSaved = decoder.decodeObjectForKey("dateSaved") as! NSDate
+        self.init(subTotal: decoder.decodeDoubleForKey("billAmount") as Double,
+                  andTipPercent: decoder.decodeDoubleForKey("tipPercent") as Double,
+                  forSplit: decoder.decodeInt32ForKey("shareCount") as Int32,
+                  onDate: decoder.decodeObjectForKey("dateSaved") as! NSDate)
     }
     
     func encodeWithCoder(coder: NSCoder) {

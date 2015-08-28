@@ -26,4 +26,8 @@ class TipCalUtils {
         
         return formatter.stringFromDate(date)
     }
+
+    static func getAppVersionString() -> String {
+        return (NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String)!
+    }
 }

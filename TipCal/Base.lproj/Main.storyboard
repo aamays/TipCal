@@ -382,6 +382,12 @@
                                     <action selector="avgAmountValueUpdated:" destination="VvW-ba-Bsh" eventType="editingChanged" id="u1R-z6-N2u"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vQ-v8-tzd">
+                                <rect key="frame" x="101" y="602" width="172" height="21"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                <color key="textColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -400,6 +406,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="appVersionLabel" destination="0vQ-v8-tzd" id="9bL-0j-OVk"/>
                         <outlet property="avgAmountTextLabel" destination="to6-7u-oQp" id="OsO-sO-s2q"/>
                         <outlet property="avgAmountValueLabel" destination="Aw7-gc-TRw" id="oK9-Gr-hAR"/>
                         <outlet property="defaultTipPrecentLabel" destination="HwA-nn-IED" id="hMo-X1-xbs"/>

@@ -46,14 +46,14 @@ class CalculatorViewController: UIViewController, CLLocationManagerDelegate {
 
     // var tip percent value
     var tipPercent = 0.0 {
-        didSet(oldTipPercent) {
+        didSet {
             tipPercentLabel.text = String(format: "(%.0f%%)", tipPercent)
         }
     }
 
     // variable for tip value
     var tipValue = 0.0 {
-        didSet(oldTipValue) {
+        didSet {
             tipValueLabel.text = currencyFormatter.stringFromNumber(tipValue)
             tipValueLabel.textColor = TipCalConstants.numTextUIColor
         }
@@ -61,7 +61,7 @@ class CalculatorViewController: UIViewController, CLLocationManagerDelegate {
 
     // varaible for total value
     var totalBillAmount = 0.0 {
-        didSet(oldTotal) {
+        didSet {
             totalValueLabel.text = currencyFormatter.stringFromNumber(totalBillAmount)
             totalValueLabel.textColor = TipCalConstants.numTextUIColor
         }
@@ -69,7 +69,7 @@ class CalculatorViewController: UIViewController, CLLocationManagerDelegate {
 
     // variable for split count
     var splitCount = 1 {
-        didSet(oldValue) {
+        didSet {
             shareCountLabel.text = "\(splitCount) share(s)"
             shareCountLabel.textColor = UIColor.darkGrayColor()
 
@@ -83,7 +83,7 @@ class CalculatorViewController: UIViewController, CLLocationManagerDelegate {
 
     // variable for share amount per person
     var splitAmount = 0.0 {
-        didSet(oldValue) {
+        didSet {
             shareAmountLabel.text = currencyFormatter.stringFromNumber(splitAmount)
             shareAmountLabel.textColor = TipCalConstants.numTextUIColor
         }
@@ -303,12 +303,7 @@ class CalculatorViewController: UIViewController, CLLocationManagerDelegate {
 
     // MARK: - Persistence
     func archiveLastBillAmount() -> Void {
-        let lastBillAmount = LastBillAmount()
-        lastBillAmount.billAmount = billAmount
-        lastBillAmount.tipPercent = tipPercent
-        lastBillAmount.dateSaved = NSDate()
-        lastBillAmount.shareCount = Int32(splitCount)
-
+        let lastBillAmount = LastBillAmount(subTotal: billAmount, andTipPercent: tipPercent, forSplit: Int32(splitCount), onDate: NSDate())
 
         if !NSKeyedArchiver.archiveRootObject(lastBillAmount, toFile: TipCalUtils.getLastBillArchiveFile()) {
             NSLog("Could not archive last bill amount")

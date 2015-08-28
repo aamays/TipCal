@@ -15,6 +15,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var defaultTipSlider: UISlider!
     @IBOutlet weak var avgAmountTextLabel: UILabel!
     @IBOutlet weak var avgAmountValueLabel: UITextField!
+    @IBOutlet weak var appVersionLabel: UILabel!
 
     // MARK: - Variables
     var onDefaultTipChanged : (() -> ())?
@@ -41,6 +42,8 @@ class SettingsViewController: UIViewController {
         tipPercent = NSUserDefaults.standardUserDefaults().floatForKey(TipCalConstants.defaultTipPercentKey)
         avgAmountValueLabel.text = "\(NSUserDefaults.standardUserDefaults().integerForKey(TipCalConstants.avgCostPerPersonKey))"
         avgAmountTextLabel.text = "Avg. \(currencyFormatter.currencySymbol!)/person"
+
+        appVersionLabel.text = "v\(TipCalUtils.getAppVersionString())"
     }
 
     override func didReceiveMemoryWarning() {
