@@ -26,6 +26,7 @@ class CalculatorViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var shareCountSlider: UISlider!
     @IBOutlet weak var locationDetailsView: UIView!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet var wholeView: UIView!
 
 
     // MARK: - Class Variables
@@ -107,6 +108,8 @@ class CalculatorViewController: UIViewController, CLLocationManagerDelegate {
             updateTipPercentWithDefault = true
         }
 
+        TipCalUtils.makeNavigationBarTransparent(navigationController)
+
         // setup location manager
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -118,6 +121,8 @@ class CalculatorViewController: UIViewController, CLLocationManagerDelegate {
 
     override func viewWillAppear(animated: Bool) {
         billAmountTextField.becomeFirstResponder()
+        let uiThemeColorIndex = NSUserDefaults.standardUserDefaults().integerForKey(TipCalConstants.themeColorOptionKey)
+        wholeView.backgroundColor = TipCalConstants.themeColors[uiThemeColorIndex]
     }
 
     override func viewDidAppear(animated: Bool) {

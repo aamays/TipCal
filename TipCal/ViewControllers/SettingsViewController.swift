@@ -16,6 +16,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var avgAmountTextLabel: UILabel!
     @IBOutlet weak var avgAmountValueLabel: UITextField!
     @IBOutlet weak var appVersionLabel: UILabel!
+    @IBOutlet var wholeView: UIView!
 
     // MARK: - Variables
     var onDefaultTipChanged : (() -> ())?
@@ -46,6 +47,11 @@ class SettingsViewController: UIViewController {
         appVersionLabel.text = "v\(TipCalUtils.getAppVersionString())"
     }
 
+    override func viewWillAppear(animated: Bool) {
+        let uiThemeColorIndex = NSUserDefaults.standardUserDefaults().integerForKey(TipCalConstants.themeColorOptionKey)
+        wholeView.backgroundColor = TipCalConstants.themeColors[uiThemeColorIndex]
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -73,6 +79,10 @@ class SettingsViewController: UIViewController {
         }
     }
 
+    @IBAction func changeThemeColor(sender: UIButton) {
+        wholeView.backgroundColor = TipCalConstants.themeColors[sender.tag]
+        NSUserDefaults.standardUserDefaults().setInteger(sender.tag, forKey: TipCalConstants.themeColorOptionKey)
+    }
     /*
     // MARK: - Navigation
 

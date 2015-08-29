@@ -17,6 +17,7 @@ class TipCalConstants {
     static let avgCostPerPersonKey = "avgCostPerPerson"
     static let lastBillArchiveFileName = "lastbillamount"
     static let tipHistoryEntityName = "TipHistory"
+    static let themeColorOptionKey = "themeColor"
 
     // MARK: - General Text
     static let notAvailableText = "N/A";
@@ -30,4 +31,14 @@ class TipCalConstants {
     static let numTextUIColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1)
     // place holder text color
     static let placeHolderTextColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)
+
+    // theme colors
+    static let whiteThemeColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+    static let skyThemeColor = UIColor(red: 102/255, green: 204/255, blue: 255/255, alpha: 1)
+    static let spindriftThemeColor = UIColor(red: 102/255, green: 255/255, blue: 204/255, alpha: 1)
+    static let honeydrewThemeColor = UIColor(red: 204/255, green: 255/255, blue: 102/255, alpha: 1)
+    static let cantaloupeThemeColor = UIColor(red: 255/255, green: 204/255, blue: 102/255, alpha: 1)
+
+    static let themeColors = [whiteThemeColor, skyThemeColor, spindriftThemeColor, honeydrewThemeColor, cantaloupeThemeColor]
+
 }
