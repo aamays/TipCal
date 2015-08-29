@@ -38,6 +38,7 @@
 		AC9AF02C1B806E7C002B14E2 /* LastBillAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AF02B1B806E7C002B14E2 /* LastBillAmount.swift */; };
 		AC9AF02E1B807E23002B14E2 /* TipCalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AF02D1B807E23002B14E2 /* TipCalUtils.swift */; };
 		AC9AF0401B80DF80002B14E2 /* TipDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AF03F1B80DF80002B14E2 /* TipDetailsViewController.swift */; };
+		ACC3581E1B914F9D0075C60C /* TipCalDemo6_1.gif in Resources */ = {isa = PBXBuildFile; fileRef = ACC3581D1B914F9D0075C60C /* TipCalDemo6_1.gif */; };
 		ACF548511B82EE58005D58BE /* TipCalDemo.gif in Resources */ = {isa = PBXBuildFile; fileRef = ACF548501B82EE58005D58BE /* TipCalDemo.gif */; };
 		ACF75E551B8F46DC005D447A /* TipCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF75E541B8F46DC005D447A /* TipCalculator.swift */; };
 /* End PBXBuildFile section */
@@ -88,6 +89,7 @@
 		AC9AF02B1B806E7C002B14E2 /* LastBillAmount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastBillAmount.swift; sourceTree = "<group>"; };
 		AC9AF02D1B807E23002B14E2 /* TipCalUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipCalUtils.swift; path = TipCal/TipCalUtils.swift; sourceTree = SOURCE_ROOT; };
 		AC9AF03F1B80DF80002B14E2 /* TipDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipDetailsViewController.swift; path = ViewControllers/TipDetailsViewController.swift; sourceTree = "<group>"; };
+		ACC3581D1B914F9D0075C60C /* TipCalDemo6_1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = TipCalDemo6_1.gif; sourceTree = "<group>"; };
 		ACF548501B82EE58005D58BE /* TipCalDemo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = TipCalDemo.gif; sourceTree = "<group>"; };
 		ACF75E541B8F46DC005D447A /* TipCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				ACF548501B82EE58005D58BE /* TipCalDemo.gif */,
+				ACC3581D1B914F9D0075C60C /* TipCalDemo6_1.gif */,
 				AC9AEFDF1B80259B002B14E2 /* TipCal */,
 				AC9AEFF81B80259B002B14E2 /* TipCalTests */,
 				AC9AEFDE1B80259B002B14E2 /* Products */,
@@ -319,6 +322,7 @@
 				AC9AF00C1B802974002B14E2 /* History-24.png in Resources */,
 				AC9AF0221B80333A002B14E2 /* TipCal.plist in Resources */,
 				AC4C07F71B83096700C16F75 /* Group-100.png in Resources */,
+				ACC3581E1B914F9D0075C60C /* TipCalDemo6_1.gif in Resources */,
 				ACF548511B82EE58005D58BE /* TipCalDemo.gif in Resources */,
 				AC4C07F81B83096700C16F75 /* User-100.png in Resources */,
 				AC4C07FA1B830A2A00C16F75 /* Right Filled-100.png in Resources */,
