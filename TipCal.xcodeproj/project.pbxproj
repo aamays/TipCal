@@ -22,14 +22,14 @@
 		AC8CBBCE1B81C53100C25A4D /* Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8CBBCD1B81C53100C25A4D /* Loading.png */; };
 		AC9AEFE31B80259B002B14E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AEFE21B80259B002B14E2 /* AppDelegate.swift */; };
 		AC9AEFE61B80259B002B14E2 /* TipCal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC9AEFE41B80259B002B14E2 /* TipCal.xcdatamodeld */; };
-		AC9AEFE81B80259B002B14E2 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AEFE71B80259B002B14E2 /* CalculatorViewController.swift */; };
+		AC9AEFE81B80259B002B14E2 /* TipHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AEFE71B80259B002B14E2 /* TipHistoryTableViewController.swift */; };
 		AC9AEFEB1B80259B002B14E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC9AEFE91B80259B002B14E2 /* Main.storyboard */; };
 		AC9AEFED1B80259B002B14E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9AEFEC1B80259B002B14E2 /* Images.xcassets */; };
 		AC9AEFF01B80259B002B14E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC9AEFEE1B80259B002B14E2 /* LaunchScreen.xib */; };
 		AC9AEFFC1B80259B002B14E2 /* TipCalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AEFFB1B80259B002B14E2 /* TipCalTests.swift */; };
 		AC9AF00A1B802905002B14E2 /* Settings-24.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9AF0091B802905002B14E2 /* Settings-24.png */; };
 		AC9AF00C1B802974002B14E2 /* History-24.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9AF00B1B802974002B14E2 /* History-24.png */; };
-		AC9AF00E1B802A2D002B14E2 /* TipHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AF00D1B802A2D002B14E2 /* TipHistoryTableViewController.swift */; };
+		AC9AF00E1B802A2D002B14E2 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AF00D1B802A2D002B14E2 /* CalculatorViewController.swift */; };
 		AC9AF0101B802A47002B14E2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9AF00F1B802A47002B14E2 /* SettingsViewController.swift */; };
 		AC9AF01F1B803276002B14E2 /* LessTip-30.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9AF01D1B803276002B14E2 /* LessTip-30.png */; };
 		AC9AF0201B803276002B14E2 /* MoreTip-30.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9AF01E1B803276002B14E2 /* MoreTip-30.png */; };
@@ -53,41 +53,41 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AC4C07F51B83096700C16F75 /* Group-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group-100.png"; sourceTree = "<group>"; };
-		AC4C07F61B83096700C16F75 /* User-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User-100.png"; sourceTree = "<group>"; };
-		AC4C07F91B830A2A00C16F75 /* Right Filled-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Right Filled-100.png"; sourceTree = "<group>"; };
+		AC4C07F51B83096700C16F75 /* Group-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Group-100.png"; path = "Images/Group-100.png"; sourceTree = "<group>"; };
+		AC4C07F61B83096700C16F75 /* User-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "User-100.png"; path = "Images/User-100.png"; sourceTree = "<group>"; };
+		AC4C07F91B830A2A00C16F75 /* Right Filled-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Right Filled-100.png"; path = "Images/Right Filled-100.png"; sourceTree = "<group>"; };
 		AC4C07FB1B8389FD00C16F75 /* TipHistoryTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipHistoryTableCell.swift; sourceTree = "<group>"; };
-		AC4C08301B8EABF100C16F75 /* Map Marker-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Map Marker-64.png"; sourceTree = "<group>"; };
+		AC4C08301B8EABF100C16F75 /* Map Marker-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Map Marker-64.png"; path = "Images/Map Marker-64.png"; sourceTree = "<group>"; };
 		AC4C08341B8EB6B100C16F75 /* TipHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipHistory.swift; sourceTree = "<group>"; };
-		AC8CBBB91B81B02C00C25A4D /* Info-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info-25.png"; sourceTree = "<group>"; };
-		AC8CBBBD1B81B70500C25A4D /* AcknowledgementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcknowledgementViewController.swift; sourceTree = "<group>"; };
-		AC8CBBBF1B81B90300C25A4D /* Banknotes-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Banknotes-100.png"; sourceTree = "<group>"; };
-		AC8CBBC11B81B95800C25A4D /* Tip-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tip-100.png"; sourceTree = "<group>"; };
-		AC8CBBC71B81BFF500C25A4D /* tipApp-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tipApp-120.png"; sourceTree = "<group>"; };
-		AC8CBBC91B81C02900C25A4D /* tipApp-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tipApp-180.png"; sourceTree = "<group>"; };
-		AC8CBBCD1B81C53100C25A4D /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Loading.png; sourceTree = "<group>"; };
+		AC8CBBB91B81B02C00C25A4D /* Info-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Info-25.png"; path = "Images/Info-25.png"; sourceTree = "<group>"; };
+		AC8CBBBD1B81B70500C25A4D /* AcknowledgementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AcknowledgementViewController.swift; path = ViewControllers/AcknowledgementViewController.swift; sourceTree = "<group>"; };
+		AC8CBBBF1B81B90300C25A4D /* Banknotes-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Banknotes-100.png"; path = "Images/Banknotes-100.png"; sourceTree = "<group>"; };
+		AC8CBBC11B81B95800C25A4D /* Tip-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Tip-100.png"; path = "Images/Tip-100.png"; sourceTree = "<group>"; };
+		AC8CBBC71B81BFF500C25A4D /* tipApp-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tipApp-120.png"; path = "Images/tipApp-120.png"; sourceTree = "<group>"; };
+		AC8CBBC91B81C02900C25A4D /* tipApp-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tipApp-180.png"; path = "Images/tipApp-180.png"; sourceTree = "<group>"; };
+		AC8CBBCD1B81C53100C25A4D /* Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Loading.png; path = Images/Loading.png; sourceTree = "<group>"; };
 		AC9AEFDD1B80259B002B14E2 /* TipCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TipCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC9AEFE11B80259B002B14E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC9AEFE21B80259B002B14E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC9AEFE51B80259B002B14E2 /* TipCal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TipCal.xcdatamodel; sourceTree = "<group>"; };
-		AC9AEFE71B80259B002B14E2 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
+		AC9AEFE71B80259B002B14E2 /* TipHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TipHistoryTableViewController.swift; path = ViewControllers/TipHistoryTableViewController.swift; sourceTree = "<group>"; };
 		AC9AEFEA1B80259B002B14E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC9AEFEC1B80259B002B14E2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AC9AEFEF1B80259B002B14E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		AC9AEFF51B80259B002B14E2 /* TipCalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipCalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC9AEFFA1B80259B002B14E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC9AEFFB1B80259B002B14E2 /* TipCalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCalTests.swift; sourceTree = "<group>"; };
-		AC9AF0091B802905002B14E2 /* Settings-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings-24.png"; sourceTree = "<group>"; };
-		AC9AF00B1B802974002B14E2 /* History-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "History-24.png"; sourceTree = "<group>"; };
-		AC9AF00D1B802A2D002B14E2 /* TipHistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipHistoryTableViewController.swift; sourceTree = "<group>"; };
-		AC9AF00F1B802A47002B14E2 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		AC9AF01D1B803276002B14E2 /* LessTip-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LessTip-30.png"; sourceTree = "<group>"; };
-		AC9AF01E1B803276002B14E2 /* MoreTip-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MoreTip-30.png"; sourceTree = "<group>"; };
+		AC9AF0091B802905002B14E2 /* Settings-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Settings-24.png"; path = "Images/Settings-24.png"; sourceTree = "<group>"; };
+		AC9AF00B1B802974002B14E2 /* History-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "History-24.png"; path = "Images/History-24.png"; sourceTree = "<group>"; };
+		AC9AF00D1B802A2D002B14E2 /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorViewController.swift; path = ViewControllers/CalculatorViewController.swift; sourceTree = "<group>"; };
+		AC9AF00F1B802A47002B14E2 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ViewControllers/SettingsViewController.swift; sourceTree = "<group>"; };
+		AC9AF01D1B803276002B14E2 /* LessTip-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LessTip-30.png"; path = "Images/LessTip-30.png"; sourceTree = "<group>"; };
+		AC9AF01E1B803276002B14E2 /* MoreTip-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MoreTip-30.png"; path = "Images/MoreTip-30.png"; sourceTree = "<group>"; };
 		AC9AF0211B80333A002B14E2 /* TipCal.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TipCal.plist; sourceTree = "<group>"; };
 		AC9AF0231B803364002B14E2 /* TipCalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipCalConstants.swift; path = TipCal/TipCalConstants.swift; sourceTree = SOURCE_ROOT; };
 		AC9AF02B1B806E7C002B14E2 /* LastBillAmount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastBillAmount.swift; sourceTree = "<group>"; };
 		AC9AF02D1B807E23002B14E2 /* TipCalUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipCalUtils.swift; path = TipCal/TipCalUtils.swift; sourceTree = SOURCE_ROOT; };
-		AC9AF03F1B80DF80002B14E2 /* TipDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipDetailsViewController.swift; sourceTree = "<group>"; };
+		AC9AF03F1B80DF80002B14E2 /* TipDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipDetailsViewController.swift; path = ViewControllers/TipDetailsViewController.swift; sourceTree = "<group>"; };
 		ACF548501B82EE58005D58BE /* TipCalDemo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = TipCalDemo.gif; sourceTree = "<group>"; };
 		ACF75E541B8F46DC005D447A /* TipCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,8 +176,8 @@
 		ACF75E561B8F4725005D447A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				AC9AEFE71B80259B002B14E2 /* CalculatorViewController.swift */,
-				AC9AF00D1B802A2D002B14E2 /* TipHistoryTableViewController.swift */,
+				AC9AEFE71B80259B002B14E2 /* TipHistoryTableViewController.swift */,
+				AC9AF00D1B802A2D002B14E2 /* CalculatorViewController.swift */,
 				AC9AF03F1B80DF80002B14E2 /* TipDetailsViewController.swift */,
 				AC9AF00F1B802A47002B14E2 /* SettingsViewController.swift */,
 				AC8CBBBD1B81B70500C25A4D /* AcknowledgementViewController.swift */,
@@ -351,10 +351,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC9AF02C1B806E7C002B14E2 /* LastBillAmount.swift in Sources */,
-				AC9AF00E1B802A2D002B14E2 /* TipHistoryTableViewController.swift in Sources */,
+				AC9AF00E1B802A2D002B14E2 /* CalculatorViewController.swift in Sources */,
 				AC9AF02E1B807E23002B14E2 /* TipCalUtils.swift in Sources */,
 				AC9AF0241B803364002B14E2 /* TipCalConstants.swift in Sources */,
-				AC9AEFE81B80259B002B14E2 /* CalculatorViewController.swift in Sources */,
+				AC9AEFE81B80259B002B14E2 /* TipHistoryTableViewController.swift in Sources */,
 				AC9AEFE61B80259B002B14E2 /* TipCal.xcdatamodeld in Sources */,
 				AC4C08351B8EB6B100C16F75 /* TipHistory.swift in Sources */,
 				AC9AF0101B802A47002B14E2 /* SettingsViewController.swift in Sources */,
