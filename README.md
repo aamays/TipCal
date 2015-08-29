@@ -32,7 +32,7 @@ Time spent: 15 hours
 
 #### Walkthrough:
 
-![Video Walkthrough](TipCalDemo6_1.gif)
+![Video Walkthrough](TipCalDemo6_2.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
