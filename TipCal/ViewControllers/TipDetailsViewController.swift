@@ -19,6 +19,7 @@ class TipDetailsViewController: UIViewController {
     @IBOutlet weak var tipValueLabel: UILabel!
     @IBOutlet weak var totalAmountLabel: UILabel!
     @IBOutlet weak var restaurantLocationMap: MKMapView!
+    @IBOutlet var wholeView: UIView!
 
     // MARK: Variables
     var tipHistoryRecord: TipHistory? = nil
@@ -33,6 +34,11 @@ class TipDetailsViewController: UIViewController {
             currencyFormatter.locale = NSLocale(localeIdentifier: tipHistoryRecord?.localeIdentifier ?? "en_US")
             updateAllLabels()
         }
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        let uiThemeColorIndex = NSUserDefaults.standardUserDefaults().integerForKey(TipCalConstants.themeColorOptionKey)
+        wholeView.backgroundColor = TipCalConstants.themeColors[uiThemeColorIndex]
     }
 
     override func viewDidAppear(animated: Bool) {

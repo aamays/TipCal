@@ -11,6 +11,7 @@ import CoreData
 
 class TipHistoryTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
+    @IBOutlet var wholeView: UITableView!
     // currency formatter
     var currencyFormatter = NSNumberFormatter()
 
@@ -30,6 +31,11 @@ class TipHistoryTableViewController: UITableViewController, NSFetchedResultsCont
         fetchedResultsController.delegate = self
         fetchedResultsController.performFetch(nil)
         animateLoadingTable()
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        let uiThemeColorIndex = NSUserDefaults.standardUserDefaults().integerForKey(TipCalConstants.themeColorOptionKey)
+        wholeView.backgroundColor = TipCalConstants.themeColors[uiThemeColorIndex]
     }
 
     override func didReceiveMemoryWarning() {
