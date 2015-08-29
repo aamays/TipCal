@@ -221,6 +221,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dateLabel" destination="LAZ-lU-u6C" id="5em-8u-hzI"/>
                                     <outlet property="referenceLabel" destination="0Ke-lN-9Rk" id="R7T-qO-yhr"/>
@@ -236,6 +237,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Bill History" id="MS2-Jd-b4W"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="wholeView" destination="Vg1-7v-XeI" id="iWA-QB-YNk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mzX-lT-AxI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -323,6 +327,7 @@
                         <outlet property="tipPercentLabel" destination="vFv-eB-Zez" id="LR0-OR-9tr"/>
                         <outlet property="tipValueLabel" destination="evk-j5-CUl" id="13X-DX-1Tp"/>
                         <outlet property="totalAmountLabel" destination="Pvu-YA-nfG" id="uk0-Rf-hxe"/>
+                        <outlet property="wholeView" destination="3YO-eO-uQ3" id="L6u-BV-XLA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BXt-eU-xPE" userLabel="First Responder" sceneMemberID="firstResponder"/>
