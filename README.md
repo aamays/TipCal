@@ -31,13 +31,9 @@ Time spent: 15 hours
 
 #### Walkthrough:
 
-![Video Walkthrough](TipCalDemo.gif)
+![Video Walkthrough](TipCalDemo6_1.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
-
-#### Demo:
-
-[Demo](https://www.youtube.com/watch?v=jn_i-FuJoQQ)
 
 #### Development/Testing environment
 
