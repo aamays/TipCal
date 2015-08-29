@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class TipCalUtils {
 
@@ -29,5 +30,12 @@ class TipCalUtils {
 
     static func getAppVersionString() -> String {
         return (NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String)!
+    }
+
+    static func makeNavigationBarTransparent(navController: UINavigationController?) {
+        navController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navController?.navigationBar.shadowImage = UIImage()
+        navController?.navigationBar.translucent = true
+        navController?.view.backgroundColor = UIColor.clearColor()
     }
 }

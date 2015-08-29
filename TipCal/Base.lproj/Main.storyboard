@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--TipCal-->
+        <!--Calculator View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="CalculatorViewController" customModule="TipCal" customModuleProvider="target" sceneMemberID="viewController">
@@ -13,26 +13,23 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="t7f-AW-3nr">
-                                <rect key="frame" x="289" y="503" width="39" height="37"/>
-                            </pageControl>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hyZ-Hr-NnB">
                                 <rect key="frame" x="16" y="256" width="343" height="103"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Banknotes-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="yHB-ce-J53">
-                                        <rect key="frame" x="18" y="21" width="50" height="50"/>
+                                        <rect key="frame" x="8" y="32" width="40" height="40"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvu-Gf-xDI">
-                                        <rect key="frame" x="78" y="8" width="257" height="75"/>
+                                        <rect key="frame" x="101" y="8" width="234" height="75"/>
                                         <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="35"/>
                                         <color key="textColor" red="0.80392156862745101" green="0.80392156862745101" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="yrT-fV-zt9" appends="YES" id="sw2-kq-0sp"/>
@@ -43,10 +40,10 @@
                                 <rect key="frame" x="16" y="367" width="343" height="128"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Group-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="ENa-su-ub2">
-                                        <rect key="frame" x="4" y="29" width="30" height="30"/>
+                                        <rect key="frame" x="21" y="43" width="30" height="30"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="User-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="1G6-zW-1rv">
-                                        <rect key="frame" x="67" y="29" width="30" height="30"/>
+                                        <rect key="frame" x="84" y="43" width="30" height="30"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Share" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFw-s3-0Ny">
                                         <rect key="frame" x="168" y="8" width="167" height="36"/>
@@ -68,10 +65,10 @@
                                         </connections>
                                     </slider>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Right Filled-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="E2F-Og-Led">
-                                        <rect key="frame" x="40" y="31" width="25" height="25"/>
+                                        <rect key="frame" x="57" y="45" width="25" height="25"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="l1x-qV-gbs" appends="YES" id="bLT-4Z-WZR"/>
@@ -79,6 +76,7 @@
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Bill Amount" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dya-oY-HzH">
                                 <rect key="frame" x="16" y="72" width="343" height="68"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -87,25 +85,25 @@
                                 </connections>
                             </textField>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V77-FK-1R5">
-                                <rect key="frame" x="16" y="156" width="343" height="92"/>
+                                <rect key="frame" x="16" y="164" width="343" height="84"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tip" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfh-6n-OIa">
-                                        <rect key="frame" x="70" y="8" width="265" height="32"/>
+                                        <rect key="frame" x="95" y="8" width="240" height="32"/>
                                         <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="23"/>
                                         <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UgR-Ja-p8K">
-                                        <rect key="frame" x="292" y="48" width="43" height="24"/>
+                                        <rect key="frame" x="292" y="52" width="43" height="24"/>
                                         <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="14"/>
                                         <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tip-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dx6-BF-rP6">
-                                        <rect key="frame" x="22" y="29" width="40" height="40"/>
+                                        <rect key="frame" x="8" y="46" width="30" height="30"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="3Dk-se-ons" appends="YES" id="0cp-9a-EAh"/>
@@ -126,12 +124,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="TipCal" id="HxA-7b-nEX">
+                    <navigationItem key="navigationItem" id="HxA-7b-nEX">
                         <barButtonItem key="leftBarButtonItem" image="Settings-24.png" id="c0X-yz-5xA">
                             <connections>
                                 <segue destination="VvW-ba-Bsh" kind="show" identifier="showSettings" id="UHe-4J-QiP"/>
@@ -157,6 +155,7 @@
                         <outlet property="tipValueLabel" destination="Bfh-6n-OIa" id="LQC-v4-6Em"/>
                         <outlet property="totalDetailsView" destination="hyZ-Hr-NnB" id="HG9-f6-NGh"/>
                         <outlet property="totalValueLabel" destination="hvu-Gf-xDI" id="qhA-1A-CUI"/>
+                        <outlet property="wholeView" destination="kh9-bI-dsS" id="ru7-fN-sZQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -188,12 +187,12 @@
             </objects>
             <point key="canvasLocation" x="-383.5" y="4.5"/>
         </scene>
-        <!--Tip History-->
+        <!--Bill History-->
         <scene sceneID="lVF-fZ-7P4">
             <objects>
                 <tableViewController id="69q-wm-cHE" customClass="TipHistoryTableViewController" customModule="TipCal" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="67" sectionHeaderHeight="22" sectionFooterHeight="22" id="Vg1-7v-XeI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -235,14 +234,14 @@
                             <outlet property="delegate" destination="69q-wm-cHE" id="leL-i7-w0s"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Tip History" id="MS2-Jd-b4W"/>
+                    <navigationItem key="navigationItem" title="Bill History" id="MS2-Jd-b4W"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mzX-lT-AxI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="249.5" y="385.5"/>
         </scene>
-        <!--Details-->
+        <!--Bill Details-->
         <scene sceneID="4dW-Zc-Qep">
             <objects>
                 <viewController id="1Rb-SZ-JLv" customClass="TipDetailsViewController" customModule="TipCal" customModuleProvider="target" sceneMemberID="viewController">
@@ -251,7 +250,7 @@
                         <viewControllerLayoutGuide type="bottom" id="YTW-qk-CZp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3YO-eO-uQ3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bill Amount" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W93-NC-slf">
@@ -314,7 +313,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Details" id="0Ag-sh-8PZ"/>
+                    <navigationItem key="navigationItem" title="Bill Details" id="0Ag-sh-8PZ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="billAmountLabel" destination="LEa-Xy-yAr" id="8pJ-pe-rZI"/>
@@ -339,7 +338,7 @@
                         <viewControllerLayoutGuide type="bottom" id="f1h-C2-doA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="96U-c5-FhR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Default Tip %" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFn-8G-Tpc">
@@ -365,13 +364,14 @@
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="0.0" maxValue="100" minimumValueImage="LessTip-30.png" maximumValueImage="MoreTip-30.png" translatesAutoresizingMaskIntoConstraints="NO" id="JgG-0E-8ca">
                                         <rect key="frame" x="6" y="16" width="331" height="31"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="defaultTipValueUpdated:" destination="VvW-ba-Bsh" eventType="valueChanged" id="BY6-g4-dao"/>
                                         </connections>
                                     </slider>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="13" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aw7-gc-TRw">
                                 <rect key="frame" x="259" y="225" width="100" height="30"/>
@@ -388,6 +388,69 @@
                                 <color key="textColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Theme" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V51-b8-AQH">
+                                <rect key="frame" x="16" y="273" width="70" height="51"/>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6b-3L-6V6">
+                                <rect key="frame" x="91" y="347" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.40000000596046448" green="0.80000001192092896" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeThemeColor:" destination="VvW-ba-Bsh" eventType="touchUpInside" id="c9S-v4-QI4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sF-Kl-6ld">
+                                <rect key="frame" x="164" y="347" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.40000000596046448" green="1" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeThemeColor:" destination="VvW-ba-Bsh" eventType="touchUpInside" id="EEF-zC-S8j"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Qt-kQ-QeX">
+                                <rect key="frame" x="240" y="347" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.80000001192092896" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeThemeColor:" destination="VvW-ba-Bsh" eventType="touchUpInside" id="KnT-Ww-g0H"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vN8-FA-uSx">
+                                <rect key="frame" x="312" y="347" width="40" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ah-3Y-KiD">
+                                <rect key="frame" x="312" y="347" width="40" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeThemeColor:" destination="VvW-ba-Bsh" eventType="touchUpInside" id="8OZ-yp-HPJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z66-j0-MwP">
+                                <rect key="frame" x="16" y="347" width="40" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeThemeColor:" destination="VvW-ba-Bsh" eventType="touchUpInside" id="1EW-Sr-cRp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -411,6 +474,7 @@
                         <outlet property="avgAmountValueLabel" destination="Aw7-gc-TRw" id="oK9-Gr-hAR"/>
                         <outlet property="defaultTipPrecentLabel" destination="HwA-nn-IED" id="hMo-X1-xbs"/>
                         <outlet property="defaultTipSlider" destination="JgG-0E-8ca" id="4O4-Xe-CLz"/>
+                        <outlet property="wholeView" destination="96U-c5-FhR" id="csB-Ds-Xxx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehG-ww-ftX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -431,7 +495,7 @@
                         <viewControllerLayoutGuide type="bottom" id="WaE-g8-LRA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9Y7-J9-MiT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IQo-ip-tay">
@@ -480,9 +544,10 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fC5-Jl-P9W" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K2t-ju-3dY">
+                    <navigationBar key="navigationBar" opaque="NO" alpha="0.49999999999999961" contentMode="scaleToFill" id="K2t-ju-3dY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -491,7 +556,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BFA-6P-dIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1470.5" y="4.5"/>
+            <point key="canvasLocation" x="-872.5" y="4.5"/>
         </scene>
     </scenes>
     <resources>
