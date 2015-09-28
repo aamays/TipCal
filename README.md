@@ -44,12 +44,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 * Devices
  * iPhone 6 Simulator
 
-#### Limitations
-
-* The app currently works only in iPhone 6 - Portrait Mode
-
 #### Further improvements to do:
 
-* Make the app compatible with other devices
-* Support Landscape mode
-* Text localization in the app
+* Update map view to tap on pin annotation to segue to BusinessDetailsViewController
+* Test for more corner cases
